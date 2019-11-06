@@ -21,7 +21,7 @@ module.exports = {
         },
         historyApiFallback: true,
         inline: true,
-        host:   'test-saga',
+        host:   'localhost',
         https:  false,
         open:   true,
         port:   3000
@@ -59,7 +59,8 @@ module.exports = {
 
     resolve: {
         alias: {
-            Contaienr: srcPath + '/container',
+            Component: srcPath + '/component',
+            Container: srcPath + '/container',
             Data:      srcPath + '/data',
             Page:      srcPath + '/page',
             Redux:     srcPath + '/redux',
