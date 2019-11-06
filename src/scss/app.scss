@@ -1,5 +1,30 @@
+@import './core';
+
 html, body {
     background: #121212;
     color: #ddd;
     font-family: Roboto, sans-serif;
+    margin: 5px;
+    padding: 0;
+}
+
+a {
+    color: $linkColorOut;
+    cursor: pointer;
+    padding: 2px 3px;
+    text-decoration: none;
+
+    &:before {
+        content: '# ';
+        opacity: 0;
+    }
+
+    &:hover {
+        color: $linkColorHover;
+        text-decoration: underline;
+
+        &:before {
+            opacity: 1;
+        }
+    }
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 
+import Header from 'Component/header';
+
 const List = () => (
-    <h1>List</h1>
+    <>
+        <Header />
+    </>
 );
 
 export default List;

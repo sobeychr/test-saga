@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-import Router from './Router';
+import styles from 'Scss/app';
 
-import styles from 'Scss/app.scss';
+import Router from './Router';
 
 render(
     <Router />,

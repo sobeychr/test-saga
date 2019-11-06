@@ -66,7 +66,7 @@ module.exports = {
             Redux:     srcPath + '/redux',
             Scss:      srcPath + '/scss',
         },
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js', '.jsx', '.scss', '.json'],
         modules: [
             srcPath,
             'node_modules',
