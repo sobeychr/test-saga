@@ -60,11 +60,10 @@ module.exports = {
     resolve: {
         alias: {
             Component: srcPath + '/component',
-            Container: srcPath + '/container',
             Data:      srcPath + '/data',
             Page:      srcPath + '/page',
-            Redux:     srcPath + '/redux',
             Scss:      srcPath + '/scss',
+            Store:     srcPath + '/store',
         },
         extensions: ['.js', '.jsx', '.scss', '.json'],
         modules: [
