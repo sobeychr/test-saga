@@ -1,5 +1,7 @@
 const path = require('path');
+
 const rootPath = path.resolve(__dirname, '../');
+const srcPath = rootPath + '/src';
 
 module.exports = {
     entry: rootPath + '/src/App.jsx',
@@ -54,4 +56,19 @@ module.exports = {
             }
         ]
     },
+
+    resolve: {
+        alias: {
+            Contaienr: srcPath + '/container',
+            Data:      srcPath + '/data',
+            Page:      srcPath + '/page',
+            Redux:     srcPath + '/redux',
+            Scss:      srcPath + '/scss',
+        },
+        extensions: ['.js', '.jsx'],
+        modules: [
+            srcPath,
+            'node_modules',
+        ],
+    }
 };

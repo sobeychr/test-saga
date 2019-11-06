@@ -1,19 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-const App = () => (<header>
-        <h1>test saga</h1>
-        <h2>ttt</h2>
-    </header>
-);
+import Router from './Router';
 
 render(
-    <App/>,
+    <Router />,
     document.getElementById('app')
 );
-
-/*
-const ttt = (t) => console.log(t);
-
-ttt('test');
-*/
