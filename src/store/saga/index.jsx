@@ -1,11 +1,18 @@
 import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { get } from 'lodash';
 
-import { end as endPage } from 'Store/action/page';
+import {
+    end as endPage,
+    navigate as navigatePage,
+} from 'Store/action/page';
 import { INIT_APP, PAGE_FETCH } from 'Store/type';
+
+import pages from 'Data/pages';
+const firstPage = get(pages, '0.page');
 
 function* initAppState() {
     try {
-        // yield put(loadHome);
+        yield put(navigatePage(firstPage));
     }
     catch(err) {
         console.error('[initAppState]-try', err);

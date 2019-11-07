@@ -1,6 +1,11 @@
-import { PAGE_END, PAGE_FETCH } from 'Store/type';
+import {
+    PAGE_END,
+    PAGE_FETCH,
+    PAGE_NAVIGATE,
+} from 'Store/type';
 
 const initialState = {
+    current: '',
     loading: false,
     data: {},
 };
@@ -23,6 +28,12 @@ const page = (state=initialState, action) => {
         return {
             ...state,
             loading: payload,
+        };
+    }
+    else if(type === PAGE_NAVIGATE) {
+        return {
+            ...state,
+            current: payload,
         };
     }
     else {
