@@ -5,11 +5,11 @@ import {
     PAGE_NAVIGATE,
 } from 'Store/type';
 
-const end = (page, text) => ({
+const end = (page, content) => ({
     type: PAGE_END,
     payload: {
+        content,
         page,
-        text,
     },
 });
 const fetch = page => ({
@@ -25,7 +25,6 @@ const getData = page => state => state.page.data[page];
 const getNavigation = state => state.page.current;
 
 const isLoading = state => !!state.page.loading;
-
 
 export {
     end,

@@ -18,7 +18,7 @@ const page = (state=initialState, action) => {
         return {
             ...state,
             loading: false,
-            page: {
+            data: {
                 ...state.data,
                 [page]: content,
             },

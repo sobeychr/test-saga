@@ -1,4 +1,4 @@
-import { put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { get } from 'lodash';
 
 import {
@@ -19,28 +19,23 @@ function* initAppState() {
     }
 }
 
-function* fetchPage(state) {
+function* fetchPage(action) {
     try {
-        const { payload: page } = state;
-
-        fetch(`/${page}.txt`)
-            .then(response => response.text())
-            .then(text => {
-                console.log('[fetchData]-promise', text);
-                // yield put( endPage(page, text) );
-                // const ttt = endPage(page, text);
-                // console.log('ttt', ttt);
-
-            })
-            .catch(err => {
-                console.error('[fetchData]-promise', err);
-            });
-
+        const { payload: page } = action;
+        const content = yield call(loadPageData, page);
+        yield put( endPage(page, content) );
     }
     catch(err) {
         console.error('[fetchData]-try', err);
     }
 }
+
+const loadPageData = async page => await fetch(`/${page}.txt`)
+    .then(response => response.text())
+    .then(text => text)
+    .catch(err => {
+        console.error('[fetchData]-promise', err);
+    });
 
 function* saga() {
     try {

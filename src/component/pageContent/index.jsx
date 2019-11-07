@@ -14,7 +14,6 @@ const PageContent = ({page}) => {
 
     return (
         <div>
-            <p>loading page: {page}</p>
             <pre>{data}</pre>
         </div>
     );
