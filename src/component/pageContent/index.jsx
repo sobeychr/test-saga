@@ -4,6 +4,7 @@ import { Remarkable } from 'remarkable';
 import ReactHtmlParser from 'react-html-parser';
 
 import { fetch, getData } from 'Store/action/page';
+import Loading from 'Component/loading';
 import 'Scss/component/pageContent';
 
 const md = new Remarkable();
@@ -20,6 +21,7 @@ const PageContent = ({page}) => {
 
     return (
         <>
+            <Loading show={!data} />
             {Content ? ReactHtmlParser(Content) : null}
         </>
     );

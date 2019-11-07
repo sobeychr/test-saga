@@ -1,14 +1,23 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import { get } from 'lodash';
 
+import { navigate as navigatePage } from 'Store/action/page';
 import {
-    end as endPage,
-    error as errorPage,
-    navigate as navigatePage,
-} from 'Store/action/page';
-import { INIT_APP, PAGE_FETCH } from 'Store/type';
-
+    INIT_APP,
+    CHAT_INIT,
+    CHAT_FETCH_MESSAGE,
+    CHAT_FETCH_USER,
+    PAGE_FETCH,
+} from 'Store/type';
 import pages from 'Data/pages';
+
+import {
+    initChat,
+    fetchChatMessage,
+    fetchChatUser,
+} from './chat';
+import { fetchPage } from './page';
+
 const firstPage = get(pages, '0.page');
 
 function* initAppState() {
@@ -20,35 +29,13 @@ function* initAppState() {
     }
 }
 
-function* fetchPage(action) {
-    try {
-        const { payload: page } = action;
-        const content = yield call(loadPageData, page);
-        
-        if(content) {
-            yield put( endPage(page, content) );
-        }
-        else {
-            yield put(errorPage);
-        }
-    }
-    catch(err) {
-        console.error('[fetchData]-try', err);
-    }
-}
-
-const loadPageData = async page => await fetch(`/data/${page}.md`)
-    .then(
-        response => response.status === 200
-            ? response.text()
-            : false
-    )
-    .then(text => text)
-    .catch(err => false);
-
 function* saga() {
     try {
         yield takeLatest(INIT_APP, initAppState);
+        yield takeLatest(CHAT_INIT, initChat);
+
+        yield takeEvery(CHAT_FETCH_MESSAGE, fetchChatMessage);
+        yield takeEvery(CHAT_FETCH_USER, fetchChatUser);
         yield takeEvery(PAGE_FETCH, fetchPage);
     }
     catch(err) {

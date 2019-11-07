@@ -13,7 +13,7 @@ const end = (page, content) => ({
     },
 });
 const error = {
-    type: PAGE_ERROR
+    type: PAGE_ERROR,
 };
 const fetch = page => ({
     type: PAGE_FETCH,

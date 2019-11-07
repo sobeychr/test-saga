@@ -3,13 +3,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import { Chat, Options, Home, List, NotFound } from 'Page';
 import Header from 'Component/header';
-import Loading from 'Component/loading';
 
 const Router = () => (
     <BrowserRouter>
         <>
             <Header />
-            <Loading />
             <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/chat' component={Chat} />
