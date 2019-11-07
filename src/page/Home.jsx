@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Header from 'Component/header';
+import 'Scss/page/home';
 
 const Home = () => (
     <>

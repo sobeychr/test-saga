@@ -1,4 +1,6 @@
 [
     {"page": "Home", "link": "/"},
-    {"page": "List", "link": "/list"}
+    {"page": "List", "link": "/list"},
+    {"page": "Chat", "link": "/chat"},
+    {"page": "Options", "link": "/options"}
 ]
