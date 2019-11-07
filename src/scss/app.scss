@@ -39,14 +39,23 @@ a {
     padding: 0 5px;
 }
 
-main {
-    margin: 0 auto;
-    width: 100%;
-}
-
 .hidden {
     display: none;
 }
 .invisible {
     opacity: 0;
+}
+
+main {
+    margin: 0 auto;
+    width: 100%;
+}
+
+pre {
+    background: #333;
+    border-left: 5px solid #006aff;
+    border-right: 3px solid #006aff;
+    margin: 0;
+    padding: 5px 7px;
+    white-space: pre-line;
 }

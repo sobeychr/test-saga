@@ -5,7 +5,7 @@ import 'Scss/page/home';
 
 const Home = () => {
     return (
-        <main>
+        <main className='home'>
             <PageContent page='home'/>
         </main>
     );
