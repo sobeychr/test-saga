@@ -15,7 +15,10 @@ module.exports = {
         bonjour: true,
         clientLogLevel: 'info',
         compress: true,
-        contentBase: rootPath + '/dist',
+        contentBase: [
+            rootPath + '/dist',
+            srcPath + '/data',
+        ],
         headers: {
             'X-Custom-Header': 'testing'
         },
@@ -24,7 +27,7 @@ module.exports = {
         host:   'localhost',
         https:  false,
         open:   true,
-        port:   3000
+        port:   3000,
     },
 
     mode: 'development',
@@ -34,27 +37,27 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                use: ['babel-loader']
+                use: ['babel-loader'],
             },
             {
                 test: /\.scss$/,
                 use: [
                     'style-loader',
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
                 ]
             },
             {
-                test: /\.(jpe?g|gif|png|mp3|svg)$/,
-                loaders: ['file-loader']
+                test: /\.(jpe?g|gif|png|mp3|svg|txt)$/,
+                loaders: ['file-loader'],
             },
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 use: ['source-map-loader'],
-                enforce: 'pre'
-            }
-        ]
+                enforce: 'pre',
+            },
+        ],
     },
 
     resolve: {
@@ -70,5 +73,5 @@ module.exports = {
             srcPath,
             'node_modules',
         ],
-    }
+    },
 };

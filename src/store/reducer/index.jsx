@@ -1,7 +1,5 @@
-import list from './list';
-import navigation from './navigation';
+import data from './data';
 
 export default {
-    list,
-    navigation,
+    data,
 };
