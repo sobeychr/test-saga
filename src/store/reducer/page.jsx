@@ -1,25 +1,25 @@
-import { DATA_END, DATA_FETCH } from 'Store/type';
+import { PAGE_END, PAGE_FETCH } from 'Store/type';
 
 const initialState = {
     loading: false,
     data: {},
 };
 
-const data = (state=initialState, action) => {
+const page = (state=initialState, action) => {
     const { payload, type } = action;
     
-    if(type === DATA_END) {
+    if(type === PAGE_END) {
         const { content, page } = payload;
         return {
             ...state,
             loading: false,
-            data: {
+            page: {
                 ...state.data,
                 [page]: content,
             },
         };
     }
-    else if(type === DATA_FETCH) {
+    else if(type === PAGE_FETCH) {
         return {
             ...state,
             loading: payload,
@@ -30,4 +30,4 @@ const data = (state=initialState, action) => {
     }
 };
 
-export default data;
+export default page;

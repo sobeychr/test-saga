@@ -1,5 +1,5 @@
-import data from './data';
+import page from './page';
 
 export default {
-    data,
+    page,
 };

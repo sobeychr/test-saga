@@ -1,11 +1,11 @@
 const INIT_APP = 'INIT_APP';
 
-const DATA_END = 'DATA_END';
-const DATA_FETCH = 'DATA_FETCH';
+const PAGE_END = 'PAGE_END';
+const PAGE_FETCH = 'PAGE_FETCH';
 
 export {
     INIT_APP,
     
-    DATA_END,
-    DATA_FETCH,
+    PAGE_END,
+    PAGE_FETCH,
 };

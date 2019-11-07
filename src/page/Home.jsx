@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
-import { getHomeData } from 'Store/action/data';
+import PageContent from 'Component/pageContent';
 import 'Scss/page/home';
 
 /*
@@ -11,12 +10,10 @@ import 'Scss/page/home';
  */
 
 const Home = () => {
-    const homeData = useSelector(getHomeData);
-
     return (
         <main>
             HOME - testing
-            <div>{homeData}</div>
+            <PageContent page='home'/>
         </main>
     );
 };

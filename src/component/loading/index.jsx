@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import Spinner from 'Component/spinner';
-import { isLoading } from 'Store/action/data';
+import { isLoading } from 'Store/action/page';
 import 'Scss/component/loading';
 
 const Loading = () => {
