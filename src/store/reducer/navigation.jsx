@@ -1,17 +1,19 @@
-import NAV_PAGE from 'Store/type';
+import { get } from 'lodash';
+import { NAV_PAGE } from 'Store/type';
+
+import pages from 'Data/pages';
 
 const initialState = {
-    page: 'home',
+    page: get(pages, '0.page'),
 };
 
 const navigation = (state=initialState, action) => {
-    const { type } = action;
-    const { payload: page } = action
+    const { payload, type } = action;
 
     if(type === NAV_PAGE) {
         return {
             ...state,
-            page,
+            page: payload,
         };
     }
 

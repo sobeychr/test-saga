@@ -1,8 +1,13 @@
-const page = ({page}) => ({
+import { NAV_PAGE } from 'Store/type';
+
+const getPage = state => state.navigation.page;
+
+const setPage = page => ({
     type: NAV_PAGE,
     payload: page,
 });
 
-export default {
-    page,
+export {
+    getPage,
+    setPage,
 };
