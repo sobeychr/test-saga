@@ -1,6 +1,6 @@
-import homeData from 'Data/home.txt';
 import {
     PAGE_END,
+    PAGE_ERROR,
     PAGE_FETCH,
     PAGE_NAVIGATE,
 } from 'Store/type';
@@ -12,6 +12,9 @@ const end = (page, content) => ({
         page,
     },
 });
+const error = {
+    type: PAGE_ERROR
+};
 const fetch = page => ({
     type: PAGE_FETCH,
     payload: page,
@@ -28,6 +31,7 @@ const isLoading = state => !!state.page.loading;
 
 export {
     end,
+    error,
     fetch,
 
     getData,

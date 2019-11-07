@@ -1,5 +1,6 @@
 import {
     PAGE_END,
+    PAGE_ERROR,
     PAGE_FETCH,
     PAGE_NAVIGATE,
 } from 'Store/type';
@@ -28,6 +29,12 @@ const page = (state=initialState, action) => {
         return {
             ...state,
             loading: payload,
+        };
+    }
+    else if(type === PAGE_ERROR) {
+        return {
+            ...state,
+            loading: false,
         };
     }
     else if(type === PAGE_NAVIGATE) {

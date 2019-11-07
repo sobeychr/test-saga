@@ -3,6 +3,7 @@ import { get } from 'lodash';
 
 import {
     end as endPage,
+    error as errorPage,
     navigate as navigatePage,
 } from 'Store/action/page';
 import { INIT_APP, PAGE_FETCH } from 'Store/type';
@@ -23,19 +24,27 @@ function* fetchPage(action) {
     try {
         const { payload: page } = action;
         const content = yield call(loadPageData, page);
-        yield put( endPage(page, content) );
+        
+        if(content) {
+            yield put( endPage(page, content) );
+        }
+        else {
+            yield put(errorPage);
+        }
     }
     catch(err) {
         console.error('[fetchData]-try', err);
     }
 }
 
-const loadPageData = async page => await fetch(`/${page}.txt`)
-    .then(response => response.text())
+const loadPageData = async page => await fetch(`/${page}.md`)
+    .then(
+        response => response.status === 200
+            ? response.text()
+            : false
+    )
     .then(text => text)
-    .catch(err => {
-        console.error('[fetchData]-promise', err);
-    });
+    .catch(err => false);
 
 function* saga() {
     try {
