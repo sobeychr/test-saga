@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { init, getUser } from 'Store/action/chat';
+import ChatUser from 'Component/chatUser';
 import Loading from 'Component/loading';
 import 'Scss/page/chat';
 
@@ -16,6 +17,10 @@ const Chat = () => {
     return (
         <main className='chat'>
             <Loading show={!users}/>
+            {users
+                ? users.map((user, key) => <ChatUser key={key} user={user}/>)
+                : null
+            }
         </main>
     );
 };

@@ -59,3 +59,19 @@ pre {
     padding: 5px 7px;
     white-space: pre-line;
 }
+
+$placeholder: (
+    '::-webkit-input-placeholder',
+    '::-moz-placeholder',
+    ':-ms-input-placeholder',
+    ':-moz-placeholder',
+);
+
+@each $entry in $placeholder
+{
+    input#{$entry},
+    textarea#{$entry} {
+        color: #aaa;
+        font-style: italic;
+    }
+}

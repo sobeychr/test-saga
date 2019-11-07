@@ -1,0 +1,71 @@
+$numAvatar: 5;
+$pathAvatar: '/asset/avatar.png';
+
+.chatuser {
+    box-shadow: 0 0 3px #c900af;
+    border: 2px solid #c900af;
+    height: 350px;
+    margin: 10px;
+
+    @media (min-width: 751px) {
+        float: left;
+        width: calc(50% - 30px);
+    }
+
+    .avatar {
+        background: transparent url($pathAvatar) left top no-repeat;
+        background-size: cover;
+        border-radius: 30%;
+        display: inline-block;
+
+        @for $i from 1 through $numAvatar
+        {
+            $percent: percentage($i / ($numAvatar - 1));
+            &_#{$i} {
+                background-position: $percent top;
+            }
+        }
+    }
+
+    .input {
+        background: #57004c;
+
+        button {
+            display: none;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            border-radius: 7px;
+            color: #fff;
+            display: block;
+            font-size: 16px;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+
+            &:focus {
+                background: rgba(#fff, 0.1);
+            }
+        }
+    }
+
+    .message {
+        height: calc(100% - 25px - 35px - 3px);
+    }
+
+    .username {
+        background: #57004c;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 5px;
+        vertical-align: top;
+
+        .avatar {
+            height: 20px;
+            margin-right: 10px;
+            width: 20px;
+        }
+    }
+}

@@ -2,10 +2,20 @@ import React from 'react';
 
 import 'Scss/component/chatUser';
 
-const ChatUser = () => {
+import Avatar from './avatar';
+import Input from './input';
+
+const ChatUser = ({user}) => {
     return (
         <div className='chatuser'>
-            User
+            <div className='username'>
+                <Avatar id={user.avatar}/>
+                <span>{user.name.display}</span>
+            </div>
+            <div className='message'>
+                ttt
+            </div>
+            <Input />
         </div>
     );
 };
