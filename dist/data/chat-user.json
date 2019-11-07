@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": {
+            "first": "John",
+            "last": "Test",
+            "display": "j_test"
+        },
+        "gender": 1,
+        "avatar": 1
+    },
+    {
+        "id": 2,
+        "name": {
+            "first": "Alpha",
+            "last": "Beta",
+            "display": "intested"
+        },
+        "gender": 1,
+        "avatar": 2
+    },
+    {
+        "id": 3,
+        "name": {
+            "first": "Matt",
+            "last": "Damon",
+            "display": "Natdamon"
+        },
+        "gender": 2,
+        "avatar": 3
+    }
+]

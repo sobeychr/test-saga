@@ -37,7 +37,7 @@ function* fetchPage(action) {
     }
 }
 
-const loadPageData = async page => await fetch(`/${page}.md`)
+const loadPageData = async page => await fetch(`/data/${page}.md`)
     .then(
         response => response.status === 200
             ? response.text()

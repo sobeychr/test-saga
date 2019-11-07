@@ -15,10 +15,7 @@ module.exports = {
         bonjour: true,
         clientLogLevel: 'info',
         compress: true,
-        contentBase: [
-            rootPath + '/dist',
-            srcPath + '/data',
-        ],
+        contentBase: rootPath + '/dist',
         headers: {
             'X-Custom-Header': 'testing'
         },
@@ -62,8 +59,9 @@ module.exports = {
 
     resolve: {
         alias: {
-            Component: srcPath + '/component',
-            Data:      srcPath + '/data',
+            Asset:     rootPath + '/dist/asset',
+            Component: srcPath  + '/component',
+            Data:      rootPath + '/dist/data',
             Page:      srcPath + '/page',
             Scss:      srcPath + '/scss',
             Store:     srcPath + '/store',
