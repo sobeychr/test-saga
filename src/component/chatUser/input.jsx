@@ -1,17 +1,29 @@
 import React, { Component } from 'react';
 
+import {
+    endTyping,
+    startTyping,
+} from 'Store/action/chat';
+
 class Input extends Component {
     constructor(props) {
         super(props);
+        
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        // this.onTimeout = this.onTimeout.bind(this);
+        // this.timer = false;
+
         this.state = {
+            // typing: false,
             value: '',
         };
     }
 
     handleChange(e) {
-        this.setState({ value: e.target.value });
+        this.setState({
+            value: e.target.value
+        });
     }
 
     handleSubmit(e) {
@@ -20,6 +32,24 @@ class Input extends Component {
         this.setState({ value: '' });
         console.log('sending', input);
     }
+
+    /*
+    onTimeout() {
+        const {
+            dispatch,
+            user: {
+                id,
+            },
+        } = this.props;
+
+        if(this.state.value.toString().length) {
+            dispatch( startTyping(id) );
+        }
+        else {
+            dispatch( endTyping(id) );
+        }
+    }
+    */
 
     render() {
         return (

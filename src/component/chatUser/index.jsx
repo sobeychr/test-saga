@@ -1,21 +1,20 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import 'Scss/component/chatUser';
 
-import Avatar from './avatar';
+import Header from './header';
 import Input from './input';
+import MessageBox from './messageBox';
 
 const ChatUser = ({user}) => {
+    const dispatch = useDispatch();
+
     return (
         <div className='chatuser'>
-            <div className='username'>
-                <Avatar id={user.avatar}/>
-                <span>{user.name.display}</span>
-            </div>
-            <div className='message'>
-                ttt
-            </div>
-            <Input />
+            <Header user={user}/>
+            <MessageBox user={user}/>
+            <Input dispatch={dispatch} user={user}/>
         </div>
     );
 };
