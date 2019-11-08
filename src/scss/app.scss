@@ -45,6 +45,16 @@ a {
 .invisible {
     opacity: 0;
 }
+.clearfix {
+    &:after,
+    &:before {
+        content: ' ';
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
 
 main {
     margin: 0 auto;

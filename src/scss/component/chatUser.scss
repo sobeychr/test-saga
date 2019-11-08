@@ -7,6 +7,10 @@ $borderMale: #005ec9;
 $backgroundFemale: #57004c;
 $backgroundMale: #003c80;
 
+$headerHeight: 25px;
+$inputHeight: 35px;
+$messageMargin: 10px;
+
 .chatuser {
     box-shadow: 0 0 3px 3px #c900af;
     border: 2px solid transparent;
@@ -67,6 +71,8 @@ $backgroundMale: #003c80;
     }
 
     .input {
+        margin: 0;
+
         button {
             display: none;
         }
@@ -85,7 +91,47 @@ $backgroundMale: #003c80;
     }
 
     .message {
-        height: calc(100% - 25px - 35px - 3px);
+        font-size: 12px;
+        height: calc(100% - #{$headerHeight} - #{$inputHeight} - (#{$messageMargin} * 2));
+        margin: $messageMargin 0;
         overflow-y: auto;
+
+        .entry {
+            margin: 10px 5px;
+
+            &.current {
+                .avatar,
+                .text {
+                    float: right;
+                }
+                .avatar {
+                    margin-left: 5px;
+                }
+            }
+            &:not(.current) {
+                .avatar,
+                .text {
+                    float: left;
+                }
+                .avatar {
+                    margin-right: 5px;
+                }
+            }
+
+            .avatar {
+                display: block;
+                height: 15px;
+                width: 15px;
+            }
+
+            .text {
+                background: #333;
+                border-radius: 5px;
+                display: block;
+                margin: 0;
+                padding: 3px 5px;
+                width: calc(100% - 20px - 10px);
+            }
+        }
     }
 }
