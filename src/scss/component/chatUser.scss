@@ -1,15 +1,41 @@
 $numAvatar: 5;
 $pathAvatar: '/asset/avatar.png';
 
+$borderFemale: #c900af;
+$borderMale: #005ec9;
+
+$backgroundFemale: #57004c;
+$backgroundMale: #003c80;
+
 .chatuser {
     box-shadow: 0 0 3px 3px #c900af;
-    border: 2px solid #c900af;
+    border: 2px solid transparent;
     height: 350px;
     margin: 10px;
 
     @media (min-width: 751px) {
         float: left;
         width: calc(50% - 30px);
+    }
+
+    &_female {
+        box-shadow: 0 0 3px 3px $borderFemale;
+        border-color: $borderFemale;
+
+        .header,
+        .input input:focus {
+            background: $backgroundFemale;
+        }
+    }
+
+    &_male {
+        box-shadow: 0 0 3px 3px $borderMale;
+        border-color: $borderMale;
+
+        .header,
+        .input input:focus {
+            background: $backgroundMale;
+        }
     }
 
     .avatar {
@@ -28,7 +54,6 @@ $pathAvatar: '/asset/avatar.png';
     }
 
     .header {
-        background: #57004c;
         font-size: 20px;
         font-weight: bold;
         padding: 5px;
@@ -56,10 +81,6 @@ $pathAvatar: '/asset/avatar.png';
             outline: none;
             padding: 5px;
             width: 100%;
-
-            &:focus {
-                background: #57004c;
-            }
         }
     }
 
