@@ -4,7 +4,7 @@ import Avatar from './avatar';
 
 const Header = ({user}) => (
     <div className='header'>
-        <Avatar id={user.avatar}/>
+        <Avatar user={user}/>
         <span>{user.name.display}</span>
     </div>
 );

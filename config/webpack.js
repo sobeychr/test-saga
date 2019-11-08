@@ -65,6 +65,7 @@ module.exports = {
             Page:      srcPath + '/page',
             Scss:      srcPath + '/scss',
             Store:     srcPath + '/store',
+            Util:      srcPath + '/util',
         },
         extensions: ['.js', '.jsx', '.scss', '.json'],
         modules: [

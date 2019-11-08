@@ -1,3 +1,5 @@
+@import './../core';
+
 $numAvatar: 5;
 $pathAvatar: '/asset/avatar.png';
 
@@ -91,9 +93,11 @@ $messageMargin: 10px;
     }
 
     .message {
+        @include populateScroller(#999);
+        
         font-size: 12px;
         height: calc(100% - #{$headerHeight} - #{$inputHeight} - (#{$messageMargin} * 2));
-        margin: $messageMargin 0;
+        margin: $messageMargin 5px $messageMargin 0;
         overflow-y: auto;
 
         .entry {

@@ -5,11 +5,8 @@ import { getMessage } from 'Store/action/chat';
 
 import MessageEntry from './messageEntry';
 
-const sortMessage = (messA, messB) => messA.date > messB.date;
-
 const MessageBox = ({user}) => {
     const message = useSelector(getMessage);
-    message.sort(sortMessage);
 
     return (
         <div className='message'>

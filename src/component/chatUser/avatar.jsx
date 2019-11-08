@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Avatar = ({id}) => {
+const Avatar = ({user, title}) => {
     const classes = [
         'avatar',
-        `avatar_${id}`,
+        `avatar_${user.id}`,
     ];
     return (
-        <div className={classes.join(' ')}></div>
+        <div
+            className={classes.join(' ')}
+            title={title}
+        />
     );
 };
 

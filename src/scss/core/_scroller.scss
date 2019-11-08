@@ -1,0 +1,19 @@
+$scrollerColors: (
+    #ff0000,
+    #ff7700,
+    #fff700,
+    #59ff00,
+    #00ffe1,
+    #0051ff,
+    #dd00ff,
+    #ff0077,
+);
+
+$i: 1;
+@each $color in $scrollerColors
+{
+    .scroller#{$i} {
+        @include populateScroller($color);
+    }
+    $i: $i + 1;
+}

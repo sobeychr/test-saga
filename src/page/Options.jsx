@@ -46,6 +46,8 @@ const Options = () => {
         messages.push(message);
     }
 
+    messages.sort((a, b) => a.date > b.date ? 1 : -1);
+
     return (
         <main className='options'>
             <h2>Randomly generated users</h2>
