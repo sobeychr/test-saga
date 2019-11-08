@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-    endTyping,
-    startTyping,
+    send,
 } from 'Store/action/chat';
 
 class Input extends Component {
@@ -11,11 +10,8 @@ class Input extends Component {
         
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.onTimeout = this.onTimeout.bind(this);
-        // this.timer = false;
 
         this.state = {
-            // typing: false,
             value: '',
         };
     }
@@ -28,28 +24,19 @@ class Input extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const input = this.state.value;
-        this.setState({ value: '' });
-        console.log('sending', input);
-    }
-
-    /*
-    onTimeout() {
+        
+        const message = this.state.value;
         const {
             dispatch,
             user: {
                 id,
             },
         } = this.props;
+        const timestamp = new Date().getTime();
 
-        if(this.state.value.toString().length) {
-            dispatch( startTyping(id) );
-        }
-        else {
-            dispatch( endTyping(id) );
-        }
+        this.setState({ value: '' });
+        dispatch( send(id, message, timestamp) );
     }
-    */
 
     render() {
         return (

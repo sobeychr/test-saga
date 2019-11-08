@@ -33,9 +33,10 @@ const chat = (state=initialState, action) => {
         };
     }
     else if(type === CHAT_SEND) {
+        payload.id = (state.message.length + 1);
         return {
             ...state,
-            message: state.message.push(payload),
+            message: state.message.concat(payload),
         };
     }
     else if(type === CHAT_TYPING_END) {

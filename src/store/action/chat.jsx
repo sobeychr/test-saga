@@ -21,6 +21,15 @@ const messageEnd = json => ({
 });
 const messageStart = { type: CHAT_MESSAGE_START };
 
+const send = (userId, message, timestamp) => ({
+    type: CHAT_SEND,
+    payload: {
+        user: userId,
+        message,
+        date: timestamp
+    },
+});
+
 const typingEnd = userId => ({
     type: CHAT_TYPING_END,
     payload: userId,
@@ -43,6 +52,7 @@ export {
     getUser,
     messageEnd,
     messageStart,
+    send,
     typingEnd,
     typingStart,
     userEnd,

@@ -6,6 +6,7 @@ import {
     INIT_APP,
     CHAT_INIT,
     CHAT_MESSAGE_START,
+    CHAT_SEND,
     CHAT_USER_START,
     PAGE_FETCH,
 } from 'Store/type';
