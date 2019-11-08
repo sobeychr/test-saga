@@ -5,16 +5,16 @@ import { navigate as navigatePage } from 'Store/action/page';
 import {
     INIT_APP,
     CHAT_INIT,
-    CHAT_FETCH_MESSAGE,
-    CHAT_FETCH_USER,
+    CHAT_MESSAGE_START,
+    CHAT_USER_START,
     PAGE_FETCH,
 } from 'Store/type';
 import pages from 'Data/pages';
 
 import {
     initChat,
-    fetchChatMessage,
-    fetchChatUser,
+    fetchMessage,
+    fetchUser,
 } from './chat';
 import { fetchPage } from './page';
 
@@ -34,8 +34,8 @@ function* saga() {
         yield takeLatest(INIT_APP, initAppState);
         yield takeLatest(CHAT_INIT, initChat);
 
-        yield takeEvery(CHAT_FETCH_MESSAGE, fetchChatMessage);
-        yield takeEvery(CHAT_FETCH_USER, fetchChatUser);
+        yield takeEvery(CHAT_MESSAGE_START, fetchMessage);
+        yield takeEvery(CHAT_USER_START, fetchUser);
         yield takeEvery(PAGE_FETCH, fetchPage);
     }
     catch(err) {

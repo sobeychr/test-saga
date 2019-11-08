@@ -1,7 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { init, isLoading as isChatLoading, getUser } from 'Store/action/chat';
+import {
+    init,
+    isLoading as isChatLoading,
+    getUser,
+} from 'Store/action/chat';
 import ChatUser from 'Component/chatUser';
 import Loading from 'Component/loading';
 import 'Scss/page/chat';

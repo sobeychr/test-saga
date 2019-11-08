@@ -1,11 +1,11 @@
 import {
-    CHAT_END_MESSAGE,
-    CHAT_END_TYPING,
-    CHAT_END_USER,
-    CHAT_INIT,
-    CHAT_FETCH_MESSAGE,
-    CHAT_FETCH_USER,
-    CHAT_START_TYPING,
+    CHAT_MESSAGE_END,
+    CHAT_MESSAGE_START,
+    CHAT_SEND,
+    CHAT_TYPING_END,
+    CHAT_TYPING_START,
+    CHAT_USER_END,
+    CHAT_USER_START,
 } from 'Store/type';
 
 const initialState = {
@@ -19,43 +19,48 @@ const initialState = {
 const chat = (state=initialState, action) => {
     const { payload, type } = action;
     
-    if(type === CHAT_END_MESSAGE) {
+    if(type === CHAT_MESSAGE_END) {
         return {
             ...state,
             loadMessage: false,
             message: payload,
         };
     }
-    else if(type === CHAT_END_TYPING) {
+    else if(type === CHAT_MESSAGE_START) {
         return {
             ...state,
-            typing: state.typing.splice(index, 1),
+            loadMessage: true,
         };
     }
-    else if(type === CHAT_END_USER) {
+    else if(type === CHAT_SEND) {
+        return {
+            ...state,
+            message: state.message.push(payload),
+        };
+    }
+    else if(type === CHAT_TYPING_END) {
+        return {
+            ...state,
+            typing: [],
+        };
+    }
+    else if(type === CHAT_TYPING_START) {
+        return {
+            ...state,
+            typing: state.typing.push(payload),
+        };
+    }
+    else if(type === CHAT_USER_END) {
         return {
             ...state,
             loadUser: false,
             user: payload,
         };
     }
-    else if(type === CHAT_FETCH_MESSAGE) {
-        return {
-            ...state,
-            loadMessage: true,
-            loading: true,
-        };
-    }
-    else if(type === CHAT_FETCH_USER) {
+    else if(type === CHAT_USER_START) {
         return {
             ...state,
             loadUser: true,
-        };
-    }
-    else if(type === CHAT_START_TYPING) {
-        return {
-            ...state,
-            typing: state.typing.concat(payload),
         };
     }
 

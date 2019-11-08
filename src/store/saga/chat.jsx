@@ -1,45 +1,45 @@
 import { call, put } from 'redux-saga/effects';
 
 import {
-    endMessage,
-    endUser,
-    fetchMessage,
-    fetchUser,
+    messageEnd,
+    messageStart,
+    userEnd,
+    userStart,
 } from 'Store/action/chat';
 
 function* initChat() {
     try {
-        yield put(fetchMessage);
-        yield put(fetchUser);
+        yield put(messageStart);
+        yield put(userStart);
     }
     catch(err) {
         console.error('[initChat]-try', err);
     }
 }
 
-function* fetchChatMessage() {
+function* fetchMessage() {
     try {
         const json = yield call(loadData, 'message');
         
         if(json) {
-            yield put( endMessage(json) );
+            yield put( messageEnd(json) );
         }
     }
     catch(err) {
-        console.error('[fetchChatMessage]-try', err);
+        console.error('[fetchMessage]-try', err);
     }
 }
 
-function* fetchChatUser() {
+function* fetchUser() {
     try {
         const json = yield call(loadData, 'user');
         
         if(json) {
-            yield put( endUser(json) );
+            yield put( userEnd(json) );
         }
     }
     catch(err) {
-        console.error('[fetchChatUser]-try', err);
+        console.error('[fetchUser]-try', err);
     }
 }
 
@@ -54,6 +54,6 @@ const loadData = async file => await fetch(`/data/chat-${file}.json`)
 
 export {
     initChat,
-    fetchChatMessage,
-    fetchChatUser,
+    fetchMessage,
+    fetchUser,
 };

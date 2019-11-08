@@ -1,59 +1,50 @@
 import {
-    CHAT_END_MESSAGE,
-    CHAT_END_TYPING,
-    CHAT_END_USER,
     CHAT_INIT,
-    CHAT_FETCH_MESSAGE,
-    CHAT_FETCH_USER,
-    CHAT_START_TYPING,
+    CHAT_MESSAGE_END,
+    CHAT_MESSAGE_START,
+    CHAT_SEND,
+    CHAT_TYPING_END,
+    CHAT_TYPING_START,
+    CHAT_USER_END,
+    CHAT_USER_START,
 } from 'Store/type';
 
-const init = {
-    type: CHAT_INIT,
-};
-const fetchMessage = {
-    type: CHAT_FETCH_MESSAGE,
-};
-const fetchUser = {
-    type: CHAT_FETCH_USER,
-};
-
-const endMessage = json => ({
-    type: CHAT_END_MESSAGE,
-    payload: json,
-});
-const endTyping = userId => ({
-    type: CHAT_END_TYPING,
-    payload: userId,
-});
-const endUser = json => ({
-    type: CHAT_END_USER,
-    payload: json,
-});
+const init = { type: CHAT_INIT };
+const isLoading = state => state.chat.loadMessage || state.chat.loadUser;
 
 const getMessage = state => state.chat.message;
 const getUser = state => state.chat.user;
 
-const isLoading = state => state.chat.loadMessage || state.chat.loadUser;
+const messageEnd = json => ({
+    type: CHAT_MESSAGE_END,
+    payload: json,
+});
+const messageStart = { type: CHAT_MESSAGE_START };
 
-const startTyping = userId => ({
-    type: CHAT_START_TYPING,
+const typingEnd = userId => ({
+    type: CHAT_TYPING_END,
+    payload: userId,
+});
+const typingStart = userId => ({
+    type: CHAT_TYPING_START,
     payload: userId,
 });
 
+const userEnd = json => ({
+    type: CHAT_USER_END,
+    payload: json,
+});
+const userStart = { type: CHAT_USER_START };
+
 export {
     init,
-    fetchMessage,
-    fetchUser,
-
-    endMessage,
-    endTyping,
-    endUser,
-    
+    isLoading,
     getMessage,
     getUser,
-
-    isLoading,
-
-    startTyping,
+    messageEnd,
+    messageStart,
+    typingEnd,
+    typingStart,
+    userEnd,
+    userStart,
 };
