@@ -1,146 +1,20 @@
 @import './../core';
-
-$numAvatar: 5;
-$pathAvatar: '/asset/avatar.png';
-
-$borderFemale: #c900af;
-$borderMale: #005ec9;
-
-$backgroundFemale: #57004c;
-$backgroundMale: #003c80;
-
-$headerHeight: 25px;
-$inputHeight: 35px;
-$messageMargin: 10px;
+@import './chatUser/avatar';
+@import './chatUser/gender';
+@import './chatUser/header';
+@import './chatUser/input';
+@import './chatUser/message';
+@import './chatUser/typing';
 
 .chatuser {
-    box-shadow: 0 0 3px 3px #c900af;
-    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
     height: 350px;
     margin: 10px;
+    position: relative;
 
     @media (min-width: 751px) {
         float: left;
         width: calc(50% - 30px);
-    }
-
-    &_female {
-        box-shadow: 0 0 3px 3px $borderFemale;
-        border-color: $borderFemale;
-
-        .header,
-        .input input:focus {
-            background: $backgroundFemale;
-        }
-    }
-
-    &_male {
-        box-shadow: 0 0 3px 3px $borderMale;
-        border-color: $borderMale;
-
-        .header,
-        .input input:focus {
-            background: $backgroundMale;
-        }
-    }
-
-    .avatar {
-        background: transparent url($pathAvatar) left top no-repeat;
-        background-size: cover;
-        border-radius: 30%;
-        display: inline-block;
-
-        @for $i from 1 through $numAvatar
-        {
-            $percent: percentage($i / ($numAvatar - 1));
-            &_#{$i} {
-                background-position: $percent top;
-            }
-        }
-    }
-
-    .header {
-        font-size: 20px;
-        font-weight: bold;
-        padding: 5px;
-        vertical-align: top;
-
-        .avatar {
-            height: 20px;
-            margin-right: 10px;
-            width: 20px;
-        }
-    }
-
-    .input {
-        margin: 0;
-
-        button {
-            display: none;
-        }
-
-        input {
-            background: transparent;
-            border: none;
-            color: #fff;
-            display: block;
-            font-size: 16px;
-            margin: 0 auto;
-            outline: none;
-            padding: 5px;
-            width: 100%;
-        }
-    }
-
-    .message {
-        @include populateScroller(#999);
-        
-        font-size: 12px;
-        height: calc(100% - #{$headerHeight} - #{$inputHeight} - (#{$messageMargin} * 2));
-        margin: $messageMargin 5px $messageMargin 0;
-        overflow-y: auto;
-
-        .anchor {
-            height: 0;
-            width: 0;
-        }
-
-        .entry {
-            margin: 10px 5px;
-
-            &.current {
-                .avatar,
-                .text {
-                    float: right;
-                }
-                .avatar {
-                    margin-left: 5px;
-                }
-            }
-            &:not(.current) {
-                .avatar,
-                .text {
-                    float: left;
-                }
-                .avatar {
-                    margin-right: 5px;
-                }
-            }
-
-            .avatar {
-                display: block;
-                height: 15px;
-                width: 15px;
-            }
-
-            .text {
-                background: #333;
-                border-radius: 5px;
-                display: block;
-                margin: 0;
-                padding: 3px 5px;
-                width: calc(100% - 20px - 10px);
-            }
-        }
     }
 }

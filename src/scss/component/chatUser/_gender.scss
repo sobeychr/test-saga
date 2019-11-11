@@ -1,0 +1,27 @@
+$borderFemale: #c900af;
+$borderMale: #005ec9;
+
+$backgroundFemale: #57004c;
+$backgroundMale: #003c80;
+
+.chatuser {
+    &_female {
+        box-shadow: 0 0 3px 3px $borderFemale;
+        border-color: $borderFemale;
+
+        .header,
+        .input input:focus {
+            background: $backgroundFemale;
+        }
+    }
+
+    &_male {
+        box-shadow: 0 0 3px 3px $borderMale;
+        border-color: $borderMale;
+
+        .header,
+        .input input:focus {
+            background: $backgroundMale;
+        }
+    }
+}

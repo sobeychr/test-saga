@@ -33,7 +33,7 @@ const Typing = ({user}) => {
 
     const classes = [
         'typing',
-        typing.length === 0 && 'hidden',
+        filtered.length === 0 ? 'hidden' : '',
     ];
 
     return (

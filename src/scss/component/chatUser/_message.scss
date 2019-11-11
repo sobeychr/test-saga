@@ -1,0 +1,51 @@
+.chatuser {
+    .message {
+        @include populateScroller(#999);
+        
+        font-size: 12px;
+        overflow-y: auto;
+
+        .anchor {
+            height: 0;
+            width: 0;
+        }
+
+        .entry {
+            margin: 10px 5px;
+
+            &.current {
+                .avatar,
+                .text {
+                    float: right;
+                }
+                .avatar {
+                    margin-left: 5px;
+                }
+            }
+            &:not(.current) {
+                .avatar,
+                .text {
+                    float: left;
+                }
+                .avatar {
+                    margin-right: 5px;
+                }
+            }
+
+            .avatar {
+                display: block;
+                height: 15px;
+                width: 15px;
+            }
+
+            .text {
+                background: #333;
+                border-radius: 5px;
+                display: block;
+                margin: 0;
+                padding: 3px 5px;
+                width: calc(100% - 20px - 10px);
+            }
+        }
+    }
+}

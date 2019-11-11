@@ -1,0 +1,19 @@
+$numAvatar: 5;
+$pathAvatar: '/asset/avatar.png';
+
+.chatuser {
+    .avatar {
+        background: transparent url($pathAvatar) left top no-repeat;
+        background-size: cover;
+        border-radius: 30%;
+        display: inline-block;
+
+        @for $i from 1 through $numAvatar
+        {
+            $percent: percentage(($i - 1) / ($numAvatar - 1));
+            &_#{$i} {
+                background-position: $percent top;
+            }
+        }
+    }
+}

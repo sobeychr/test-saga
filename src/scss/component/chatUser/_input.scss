@@ -1,0 +1,21 @@
+.chatuser {
+    .input {
+        margin: 25px 0 0;
+
+        button {
+            display: none;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            color: #fff;
+            display: block;
+            font-size: 16px;
+            margin: 0 auto;
+            outline: none;
+            padding: 5px;
+            width: 100%;
+        }
+    }
+}
