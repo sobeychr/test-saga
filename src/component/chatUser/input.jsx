@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
+    typingEnd,
+    typingStart,
     send,
 } from 'Store/action/chat';
 
@@ -17,9 +20,25 @@ class Input extends Component {
     }
 
     handleChange(e) {
+        const value = e.target.value.toString();
+        const {
+            dispatch,
+            user: {
+                id,
+            },
+        } = this.props;
+
         this.setState({
-            value: e.target.value
+            value,
         });
+
+        if(value.length === 0) {
+            dispatch( typingEnd(id) );
+        }
+        // else if(value.length === 1) {
+        else {
+            dispatch( typingStart(id) );
+        }
     }
 
     handleSubmit(e) {
@@ -52,5 +71,12 @@ class Input extends Component {
         );
     }
 }
+
+Input.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    user: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+    }).isRequired,
+};
 
 export default Input;

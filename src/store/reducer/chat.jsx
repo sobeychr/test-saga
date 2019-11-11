@@ -9,6 +9,11 @@ import {
     CHAT_USER_START,
 } from 'Store/type';
 
+import {
+    addOnce,
+    removeEntry,
+} from 'Util/array';
+
 const initialState = {
     loaded: false,
     loadMessage: false,
@@ -48,15 +53,17 @@ const chat = (state=initialState, action) => {
         };
     }
     else if(type === CHAT_TYPING_END) {
+        const typing = removeEntry(state.typing, payload);
         return {
             ...state,
-            typing: [],
+            typing,
         };
     }
     else if(type === CHAT_TYPING_START) {
+        const typing = addOnce(state.typing, payload);
         return {
             ...state,
-            typing: state.typing.push(payload),
+            typing,
         };
     }
     else if(type === CHAT_USER_END) {
