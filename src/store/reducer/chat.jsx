@@ -1,4 +1,5 @@
 import {
+    CHAT_INIT,
     CHAT_MESSAGE_END,
     CHAT_MESSAGE_START,
     CHAT_SEND,
@@ -9,8 +10,9 @@ import {
 } from 'Store/type';
 
 const initialState = {
-    loadMessage: true,
-    loadUser: true,
+    loaded: false,
+    loadMessage: false,
+    loadUser: false,
     user: [],
     message: [],
     typing: [],
@@ -19,6 +21,12 @@ const initialState = {
 const chat = (state=initialState, action) => {
     const { payload, type } = action;
     
+    if(type === CHAT_INIT) {
+        return {
+            ...state,
+            loaded: true,
+        };
+    }
     if(type === CHAT_MESSAGE_END) {
         return {
             ...state,

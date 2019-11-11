@@ -11,6 +11,7 @@ import {
 
 const init = { type: CHAT_INIT };
 const isLoading = state => state.chat.loadMessage || state.chat.loadUser;
+const hasLoaded = state => state.chat.loaded;
 
 const getMessage = state => state.chat.message;
 const getUser = state => state.chat.user;
@@ -48,6 +49,7 @@ const userStart = { type: CHAT_USER_START };
 export {
     init,
     isLoading,
+    hasLoaded,
     getMessage,
     getUser,
     messageEnd,

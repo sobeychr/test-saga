@@ -1,21 +1,30 @@
 import React, { Component, PureComponent } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getMessage } from 'Store/action/chat';
+import {
+    isLoading as isChatLoading,
+    hasLoaded as hasChatLoaded,
+    getMessage,
+} from 'Store/action/chat';
 
 import MessageEntry from './messageEntry';
 
 const MessageBox = ({user}) => {
+    const isLoading = useSelector(isChatLoading);
+    const hasLoaded = useSelector(hasChatLoaded);
     const message = useSelector(getMessage);
     const anchorRef = React.createRef();
 
-    setTimeout(() => {
-        anchorRef.current.scrollIntoView();
-    }, 25);
+    if(hasLoaded && !isLoading) {
+        // small timeout to allow 'anchorRef' to be defined
+        setTimeout(() => {
+            anchorRef.current.scrollIntoView();
+        }, 25);
+    }
 
     return (
         <div className='message'>
-            {message
+            {hasLoaded && !isLoading && message
                 ? message.map((entry, key) => <MessageEntry
                         isCurrent={user.id === entry.user}
                         key={key}
