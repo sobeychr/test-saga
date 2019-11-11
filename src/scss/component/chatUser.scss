@@ -100,6 +100,11 @@ $messageMargin: 10px;
         margin: $messageMargin 5px $messageMargin 0;
         overflow-y: auto;
 
+        .anchor {
+            height: 0;
+            width: 0;
+        }
+
         .entry {
             margin: 10px 5px;
 
