@@ -8,7 +8,6 @@ import {
 } from 'Store/action/chat';
 
 import MessageEntry from './messageEntry';
-import Typing from './typing';
 
 let scrolled = false;
 
@@ -36,7 +35,6 @@ const MessageBox = ({user}) => {
                         message={entry}
                     />)
                 : null}
-            <Typing />
             <div className='anchor' ref={anchorRef}></div>
         </div>
     );

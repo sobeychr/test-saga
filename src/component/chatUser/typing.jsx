@@ -7,10 +7,13 @@ import {
 } from 'Store/action/chat';
 import { getEntries } from 'Util/user';
 
+const maxTyping = 2;
+
 const generateTyping = (userList, typing) => {
-    if(typing.length === 0) return '';
-    else if(typing.length > 2) return `${typing.length} users are typing`;
-    else {
+    if(typing.length === 0) {
+        return '';
+    }
+    else if(typing.length <= maxTyping) {
         const users = getEntries(userList, typing);
         const userNames = users.map(entry => entry.name.display);
 
@@ -18,16 +21,23 @@ const generateTyping = (userList, typing) => {
             ? `${userNames.join('')} is typing`
             : `${userNames.join(' and ')} are typing`;
     }
+
+    return `${typing.length} users are typing`;
 };
 
 const Typing = ({user}) => {
     const userList = useSelector(getUser);
     const typing = useSelector(getTyping);
-    const isTyping = typing.length > 0;
-    const generated = generateTyping(userList, typing);
+    const filtered = typing.filter(entry => entry !== user.id);
+    const generated = generateTyping(userList, filtered);
+
+    const classes = [
+        'typing',
+        typing.length === 0 && 'hidden',
+    ];
 
     return (
-        <div className={`typing ${!isTyping && 'hidden'}`}>{generated}</div>
+        <div className={classes.join(' ')}>{generated}</div>
     );
 };
 
