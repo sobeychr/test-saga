@@ -2,19 +2,20 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUser } from 'Store/action/chat';
-import { getDateTime } from 'Util/date'
+import { getDateTime } from 'Util/date';
+import { getEntry as getSingleUser } from 'Util/user';
 
 import Avatar from './avatar';
 
 const generateTitle = (user, date) => user.name.display
-        + ' - '
-        + getDateTime(date);
+    + ' - '
+    + getDateTime(date);
 
 const MessageEntry = ({isCurrent, message}) => {
     const { date: timestamp, message: text, user: userId } = message;
     const classes = ['entry', 'clearfix'];
-    const users = useSelector(getUser);
-    const user = users.find(entry => entry.id === userId);
+    const userList = useSelector(getUser);
+    const user = getSingleUser(userList, userId);
 
     if(isCurrent) {
         classes.push('current');

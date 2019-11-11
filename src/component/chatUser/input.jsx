@@ -35,8 +35,7 @@ class Input extends Component {
         if(value.length === 0) {
             dispatch( typingEnd(id) );
         }
-        // else if(value.length === 1) {
-        else {
+        else if(value.length === 1) {
             dispatch( typingStart(id) );
         }
     }

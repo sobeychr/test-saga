@@ -14,6 +14,7 @@ const isLoading = state => state.chat.loadMessage || state.chat.loadUser;
 const hasLoaded = state => state.chat.loaded;
 
 const getMessage = state => state.chat.message;
+const getTyping = state => state.chat.typing;
 const getUser = state => state.chat.user;
 
 const messageEnd = json => ({
@@ -51,6 +52,7 @@ export {
     isLoading,
     hasLoaded,
     getMessage,
+    getTyping,
     getUser,
     messageEnd,
     messageStart,

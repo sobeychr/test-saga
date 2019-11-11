@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 
 import {
@@ -8,17 +8,22 @@ import {
 } from 'Store/action/chat';
 
 import MessageEntry from './messageEntry';
+import Typing from './typing';
+
+let scrolled = false;
 
 const MessageBox = ({user}) => {
     const isLoading = useSelector(isChatLoading);
     const hasLoaded = useSelector(hasChatLoaded);
     const message = useSelector(getMessage);
+
     const anchorRef = React.createRef();
 
-    if(hasLoaded && !isLoading) {
+    if(!scrolled && hasLoaded && !isLoading) {
         // small timeout to allow 'anchorRef' to be defined
         setTimeout(() => {
             anchorRef.current.scrollIntoView();
+            scrolled = true;
         }, 25);
     }
 
@@ -31,6 +36,7 @@ const MessageBox = ({user}) => {
                         message={entry}
                     />)
                 : null}
+            <Typing />
             <div className='anchor' ref={anchorRef}></div>
         </div>
     );
