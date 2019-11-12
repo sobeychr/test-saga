@@ -1,12 +1,12 @@
 import React from 'react';
 
-import PageContent from 'Component/pageContent';
-import 'Scss/page/home';
+import ChessBoard from 'Component/chessBoard';
+import 'Scss/page/chess';
 
 const Chess = () => {
     return (
         <main className='home'>
-            <h2>chess</h2>
+            <ChessBoard />
         </main>
     );
 };
