@@ -15,7 +15,7 @@ const getRandString = (length=10) => {
     return longString.substr(start, length);
 };
 
-const Options = () => {
+const ChatGen = () => {
     const numUsers = 5;
     const users = [];
     for(let i=0; i<numUsers; i++)
@@ -59,4 +59,4 @@ const Options = () => {
     );
 };
 
-export default Options;
+export default ChatGen;

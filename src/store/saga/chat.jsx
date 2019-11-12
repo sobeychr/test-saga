@@ -43,7 +43,7 @@ function* fetchUser() {
     }
 }
 
-const loadData = async file => await fetch(`/data/chat-${file}.json`)
+const loadData = async file => await fetch(`/api/chat/${file}.json`)
     .then(
         response => response.status === 200
             ? response.json()
