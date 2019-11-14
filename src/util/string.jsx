@@ -1,9 +1,8 @@
-const fill = (string, filler, length, append=true) => {
-    const repeat = Math.max(0, length - string.length);
-    return append
-        ? string + filler.repeat(repeat)
-        : filler.repeat(repeat) + string;
-};
+import { padStart, padEnd } from 'lodash';
+
+const fill = (string, filler, length, append=true) => append
+    ? padEnd(string, length, filler)
+    : padStart(string, length, filler);
 
 export {
     fill,
