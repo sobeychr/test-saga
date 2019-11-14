@@ -1,14 +1,7 @@
 import React from 'react';
 
-const Tile = ({letter, number}) => {
-    const classes = [
-        'tile',
-        `tile_${letter}`,
-    ];
-    return (
-        <div className={classes.join(' ')}>
-        </div>
-    );
-};
+const Tile = ({letter, number}) => (
+    <div className={`tile tile_${letter}`} />
+);
 
 export default Tile;

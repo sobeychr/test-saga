@@ -31,13 +31,8 @@ const Typing = ({user}) => {
     const filtered = typing.filter(entry => entry !== user.id);
     const generated = generateTyping(userList, filtered);
 
-    const classes = [
-        'typing',
-        filtered.length === 0 ? 'hidden' : '',
-    ];
-
     return (
-        <div className={classes.join(' ')}>{generated}</div>
+        <div className={`typing animDotted ${filtered.length === 0 && 'hidden'}`}>{generated}</div>
     );
 };
 

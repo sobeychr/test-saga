@@ -12,13 +12,9 @@ const isMale = user => user.gender === 0;
 
 const ChatUser = ({user}) => {
     const dispatch = useDispatch();
-    const classes = [
-        'chatuser',
-        isMale(user) ? 'chatuser_male' : 'chatuser_female'
-    ];
 
     return (
-        <div className={classes.join(' ')}>
+        <div className={`chatuser chatuser_${isMale(user) ? 'male' : 'female'}`}>
             <Header user={user}/>
             <MessageBox user={user}/>
             <Typing user={user}/>

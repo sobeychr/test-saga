@@ -1,0 +1,13 @@
+@keyframes animationDotted {
+    0% { content: '.'; }
+    25% { content: '..'; }
+    50% { content: '...'; }
+    75% { content: '....'; }
+}
+
+.animDotted {
+    &:after {
+        content: '.';
+        animation: loadAnimation 4s linear 0s infinite;
+    }
+}
