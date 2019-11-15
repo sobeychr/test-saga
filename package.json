@@ -8,7 +8,7 @@
         "dev": "webpack-dev-server --color --config config/webpack.dev.js",
         "newPage": "node script/newPage.js",
         "newStore": "node script/newStore.js",
-        "removePge": "node script/removePage.js"
+        "removePage": "node script/removePage.js"
     },
     "dependencies": {
         "@babel/core": "^7.7.0",
@@ -17,6 +17,7 @@
         "@babel/preset-env": "^7.7.1",
         "@babel/preset-react": "^7.7.0",
         "babel-loader": "^8.0.6",
+        "colors": "^1.4.0",
         "css-loader": "^3.2.0",
         "file-loader": "^4.2.0",
         "lodash": "^4.17.15",

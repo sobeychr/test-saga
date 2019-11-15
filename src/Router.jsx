@@ -18,10 +18,10 @@ const Router = () => (
             <Header />
             <Switch>
                 <Route exact path='/' component={Home} />
-                <Route exact path='/list' component={List} />
                 <Route exact path='/chat' component={Chat} />
                 <Route exact path='/chatgen' component={ChatGen} />
                 <Route exact path='/chess' component={Chess} />
+                <Route exact path='/list' component={List} />
                 <Route component={NotFound} />
             </Switch>
         </>

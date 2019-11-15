@@ -1,16 +1,10 @@
-const fs = require('fs');
 const path = require('path');
-const { upperFirst } = require('lodash');
+const { nameLower, nameUcFirst, nameUpper } = require('./includes/_names');
+const { writeFiles } = require('./includes/_files');
 
 const rootPath = path.resolve(__dirname, './../');
-const storePath = rootPath + '/src/store';
+const srcPath = rootPath + '/src';
 
-const [ ,, name ] = process.argv;
-const nameUpper = name.toUpperCase();
-const nameLower = name.toLowerCase();
-const nameUcFirst = upperFirst(nameLower);
-
-const pathAction = `${storePath}/action/${nameLower}.jsx`;
 const contentAction = `import { ${nameUpper}_INIT } from 'Store/type';
 
 const init = { type: ${nameUpper}_INIT };
@@ -20,7 +14,6 @@ export {
 };
 `;
 
-const pathReducer = `${storePath}/reducer/${nameLower}.jsx`;
 const contentReducer = `import { ${nameUpper}_INIT } from 'Store/type';
 
 const initialState = {
@@ -47,7 +40,6 @@ const ${nameLower} = (state=initialState, action) => {
 export default ${nameLower};
 `;
 
-const pathSaga = `${storePath}/saga/${nameLower}.jsx`;
 const contentSaga = `import { call, put } from 'redux-saga/effects';
 
 import { init } from 'Store/action/${nameLower}';
@@ -66,10 +58,17 @@ export {
 };
 `;
 
-const writeCallback = err => {
-    if(err) throw err;
-};
-
-fs.writeFile(pathAction, contentAction, 'utf8', writeCallback);
-fs.writeFile(pathReducer, contentReducer, 'utf8', writeCallback);
-fs.writeFile(pathSaga, contentSaga, 'utf8', writeCallback);
+writeFiles([
+    {
+        path: `${storePath}/action/${nameLower}.jsx`,
+        content: contentAction,
+    },
+    {
+        path: `${storePath}/reducer/${nameLower}.jsx`,
+        content: contentReducer,
+    },
+    {
+        path: `${storePath}/saga/${nameLower}.jsx`,
+        content: contentSaga,
+    },
+]);

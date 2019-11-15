@@ -1,32 +1,32 @@
-const fs = require('fs');
 const path = require('path');
+const { nameArg, nameLower } = require('./includes/_names');
+const { writeFiles } = require('./includes/_files');
 
 const rootPath = path.resolve(__dirname, './../');
 const srcPath = rootPath + '/src';
 
-const [ ,, nameUpper ] = process.argv;
-const nameLower = nameUpper.toLowerCase();
-
-const pathScss = `${srcPath}/scss/page/${nameLower}.scss`;
 const contentScss = '';
 
-const pathJsx = `${srcPath}/page/${nameUpper}.jsx`;
 const contentJsx = `import React from 'react';
 
 import 'Scss/page/${nameLower}';
 
-const ${nameUpper} = () => (
+const ${nameArg} = () => (
     <main className='list'>
         <h2>page - ${nameLower}</h2>
     </main>
 );
 
-export default ${nameUpper};
+export default ${nameArg};
 `;
 
-const writeCallback = err => {
-    if(err) throw err;
-};
-
-fs.writeFile(pathScss, contentScss, 'utf8', writeCallback);
-fs.writeFile(pathJsx, contentJsx, 'utf8', writeCallback);
+writeFiles([
+    {
+        path: `${srcPath}/scss/page/${nameLower}.scss`,
+        content: contentScss,
+    },
+    {
+        path: `${srcPath}/page/${nameArg}.jsx`,
+        content: contentJsx,
+    },
+]);
