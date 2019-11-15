@@ -1,8 +1,12 @@
 const colors = require('colors/safe');
 const fs = require('fs');
-const writeFlag = { encoding: 'utf8', flag: 'wx' };
+const path = require('path');
 
-const insertLine = ({file, start, end, line, sort=true, split='\n'}) => {
+const { cut, insertLineBetween } = require('./_string');
+
+const writeFlag = { encoding: 'utf8', flag: 'w' };
+
+const insertInFiles = (file, replaces) => {
     fs.readFile(file, 'utf8', (err, data) => {
         const { dir, filename } = logFile(file);
         if(err) {
@@ -14,41 +18,24 @@ const insertLine = ({file, start, end, line, sort=true, split='\n'}) => {
             throw err;
         }
 
-        let indexStart = data.indexOf(start);
-        if(indexStart < 0) {
-            console.log(
-                colors.red('>> unable to find start index for "insertLine"'),
-                dir,
-                colors.cyan(filename),
+        let newData = data;
+        replaces.map(entry => {
+            const { start, end, line } = entry;
+            newData = insertLineBetween(
+                newData,
+                line,
+                start,
+                end,
+                true,
             );
-            console.log('>> start string', colors.cyan(start));
-            console.log(colors.gray(data));
-            return;
-        }
-        indexStart += start.length;
+        });
 
-        const indexEnd = data.indexOf(end, indexStart);
-        if(indexEnd < 0 || indexEnd <= indexStart) {
-            console.log(
-                colors.red('>> unable to find end index for "insertLine"'),
-                dir,
-                colors.cyan(filename),
-            );
-            console.log('>> end string', colors.cyan(end));
-            console.log(colors.gray(data));
-            return;
-        }
-
-        const cutString = data.substring(indexStart, indexEnd);
-        const cutArr = cutString.split(split);
-        cutArr.push(line);
-
-        if(sort) {
-            cutArr.sort();
-        }
-
-        const newData = data.replace(cutString, cutArr.join(split));
-        console.log('>> newData', newData);
+        writeFiles([
+            {
+                path: file,
+                content: newData,
+            },
+        ]);
     });
 };
 
@@ -101,25 +88,12 @@ const removeFiles = files => {
 const writeFiles = files => {
     files.map(entry => {
         const { path, content } = entry;
-
-        fs.exists(path, exists => {
-            if(exists) {
-                const { dir, filename } = logFile(path);
-                console.log(
-                    colors.red('>> cannot overwrite file'),
-                    dir,
-                    colors.cyan(filename),
-                );
-            }
-            else {
-                fs.writeFile(path, content, writeFlag, funcWrite(path));
-            }
-        });
+        fs.writeFile(path, content, writeFlag, funcWrite(path));
     });
 };
 
 module.exports = {
-    insertLine,
+    insertInFiles,
     removeFiles,
     writeFiles,
 };
