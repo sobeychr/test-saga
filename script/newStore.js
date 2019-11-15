@@ -3,7 +3,7 @@ const { nameLower, nameUcFirst, nameUpper } = require('./includes/_names');
 const { writeFiles } = require('./includes/_files');
 
 const rootPath = path.resolve(__dirname, './../');
-const srcPath = rootPath + '/src';
+const storePath = rootPath + '/src/store';
 
 const contentAction = `import { ${nameUpper}_INIT } from 'Store/type';
 
