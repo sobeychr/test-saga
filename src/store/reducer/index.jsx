@@ -4,5 +4,6 @@ import page from './page';
 
 export default {
     chat,
+    chess,
     page,
 };

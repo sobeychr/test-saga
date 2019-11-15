@@ -28,6 +28,5 @@ const writeCallback = err => {
     if(err) throw err;
 };
 
-
 fs.writeFile(pathScss, contentScss, 'utf8', writeCallback);
 fs.writeFile(pathJsx, contentJsx, 'utf8', writeCallback);
