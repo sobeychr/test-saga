@@ -31,6 +31,7 @@ writeFiles([
     },
 ]);
 
+/*
 insertInFiles(`${srcPath}/Router.jsx`, [
     {
         start: 'import {\n',
@@ -43,3 +44,4 @@ insertInFiles(`${srcPath}/Router.jsx`, [
         line: `                <Route exact path='/${nameLower}' component={${nameArg}} />`
     },
 ]);
+*/
