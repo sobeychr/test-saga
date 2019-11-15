@@ -1,6 +1,6 @@
 const path = require('path');
 const { nameArg, nameLower } = require('./includes/_names');
-const { writeFiles } = require('./includes/_files');
+const { insertLine, writeFiles } = require('./includes/_files');
 
 const rootPath = path.resolve(__dirname, './../');
 const srcPath = rootPath + '/src';
@@ -20,6 +20,7 @@ const ${nameArg} = () => (
 export default ${nameArg};
 `;
 
+/*
 writeFiles([
     {
         path: `${srcPath}/scss/page/${nameLower}.scss`,
@@ -30,3 +31,11 @@ writeFiles([
         content: contentJsx,
     },
 ]);
+*/
+
+insertLine({
+    file: `${srcPath}/Router.jsx`,
+    start: 'import {\n',
+    end: '\n} from \'Page\';',
+    line: `    ${nameArg},`
+});
