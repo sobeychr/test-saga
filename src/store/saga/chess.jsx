@@ -5,12 +5,9 @@ import { init } from 'Store/action/chess';
 function* initChess() {
     try {
         // yield put(chessStart);
-    }
-    catch(err) {
+    } catch (err) {
         console.error('[initChess]-try', err);
     }
 }
 
-export {
-    initChess,
-};
+export { initChess };

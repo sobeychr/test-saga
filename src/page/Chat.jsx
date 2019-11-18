@@ -17,17 +17,16 @@ const Chat = () => {
     const users = useSelector(getUser);
     const dispatch = useDispatch();
 
-    if(!hasLoaded) {
+    if (!hasLoaded) {
         dispatch(init);
     }
 
     return (
-        <main className='chat'>
-            <Loading show={!hasLoaded || isLoading}/>
+        <main className="chat">
+            <Loading show={!hasLoaded || isLoading} />
             {hasLoaded && !isLoading && users
-                ? users.map((user, key) => <ChatUser key={key} user={user}/>)
-                : null
-            }
+                ? users.map((user, key) => <ChatUser key={key} user={user} />)
+                : null}
         </main>
     );
 };

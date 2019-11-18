@@ -5,7 +5,7 @@ import 'Scss/page/chess';
 
 const Chess = () => {
     return (
-        <main className='home'>
+        <main className="home">
             <ChessBoard />
         </main>
     );

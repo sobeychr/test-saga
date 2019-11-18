@@ -5,7 +5,7 @@ import Navigation from 'Component/navigation';
 import { getNavigation } from 'Store/action/page';
 import 'Scss/component/header';
 
-const Header = ({page}) => {
+const Header = ({ page }) => {
     const title = useSelector(getNavigation);
 
     return (

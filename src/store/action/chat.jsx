@@ -28,7 +28,7 @@ const send = (userId, message, timestamp) => ({
     payload: {
         user: userId,
         message,
-        date: timestamp
+        date: timestamp,
     },
 });
 

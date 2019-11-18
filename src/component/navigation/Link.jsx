@@ -4,9 +4,9 @@ import { Link as BaseLink } from 'react-router-dom';
 
 import { navigate } from 'Store/action/page';
 
-const Link = ({page, link}) => {
+const Link = ({ page, link }) => {
     const dispatch = useDispatch();
-    const onClick = () => dispatch( navigate(page) );
+    const onClick = () => dispatch(navigate(page));
 
     return (
         <BaseLink to={link} onClick={onClick}>

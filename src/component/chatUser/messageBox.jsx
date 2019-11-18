@@ -11,14 +11,14 @@ import MessageEntry from './messageEntry';
 
 let scrolled = false;
 
-const MessageBox = ({user}) => {
+const MessageBox = ({ user }) => {
     const isLoading = useSelector(isChatLoading);
     const hasLoaded = useSelector(hasChatLoaded);
     const message = useSelector(getMessage);
 
     const anchorRef = React.createRef();
 
-    if(!scrolled && hasLoaded && !isLoading) {
+    if (!scrolled && hasLoaded && !isLoading) {
         // small timeout to allow 'anchorRef' to be defined
         setTimeout(() => {
             anchorRef.current.scrollIntoView();
@@ -27,15 +27,17 @@ const MessageBox = ({user}) => {
     }
 
     return (
-        <div className='message'>
+        <div className="message">
             {hasLoaded && !isLoading && message
-                ? message.map((entry, key) => <MessageEntry
-                        isCurrent={user.id === entry.user}
-                        key={key}
-                        message={entry}
-                    />)
+                ? message.map((entry, key) => (
+                      <MessageEntry
+                          isCurrent={user.id === entry.user}
+                          key={key}
+                          message={entry}
+                      />
+                  ))
                 : null}
-            <div className='anchor' ref={anchorRef}></div>
+            <div className="anchor" ref={anchorRef}></div>
         </div>
     );
 };

@@ -9,12 +9,12 @@ import 'Scss/component/pageContent';
 
 const md = new Remarkable();
 
-const PageContent = ({page}) => {
-    const data = useSelector( getData(page) );
+const PageContent = ({ page }) => {
+    const data = useSelector(getData(page));
     const dispatch = useDispatch();
 
-    if(!data) {
-        dispatch( fetch(page) );
+    if (!data) {
+        dispatch(fetch(page));
     }
 
     const Content = md.render(data);

@@ -10,15 +10,17 @@ import Typing from './typing';
 
 const isMale = user => user.gender === 0;
 
-const ChatUser = ({user}) => {
+const ChatUser = ({ user }) => {
     const dispatch = useDispatch();
 
     return (
-        <div className={`chatuser chatuser_${isMale(user) ? 'male' : 'female'}`}>
-            <Header user={user}/>
-            <MessageBox user={user}/>
-            <Typing user={user}/>
-            <Input dispatch={dispatch} user={user}/>
+        <div
+            className={`chatuser chatuser_${isMale(user) ? 'male' : 'female'}`}
+        >
+            <Header user={user} />
+            <MessageBox user={user} />
+            <Typing user={user} />
+            <Input dispatch={dispatch} user={user} />
         </div>
     );
 };

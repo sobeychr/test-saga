@@ -9,10 +9,7 @@ import {
     CHAT_USER_START,
 } from 'Store/type';
 
-import {
-    addOnce,
-    removeEntry,
-} from 'Util/array';
+import { addOnce, removeEntry } from 'Util/array';
 
 const initialState = {
     loaded: false,
@@ -23,57 +20,51 @@ const initialState = {
     typing: [],
 };
 
-const chat = (state=initialState, action) => {
+const chat = (state = initialState, action) => {
     const { payload, type } = action;
-    
-    if(type === CHAT_INIT) {
+
+    if (type === CHAT_INIT) {
         return {
             ...state,
             loaded: true,
         };
     }
-    if(type === CHAT_MESSAGE_END) {
+    if (type === CHAT_MESSAGE_END) {
         return {
             ...state,
             loadMessage: false,
             message: payload,
         };
-    }
-    else if(type === CHAT_MESSAGE_START) {
+    } else if (type === CHAT_MESSAGE_START) {
         return {
             ...state,
             loadMessage: true,
         };
-    }
-    else if(type === CHAT_SEND) {
-        payload.id = (state.message.length + 1);
+    } else if (type === CHAT_SEND) {
+        payload.id = state.message.length + 1;
         return {
             ...state,
             message: state.message.concat(payload),
         };
-    }
-    else if(type === CHAT_TYPING_END) {
+    } else if (type === CHAT_TYPING_END) {
         const typing = removeEntry(state.typing, payload);
         return {
             ...state,
             typing,
         };
-    }
-    else if(type === CHAT_TYPING_START) {
+    } else if (type === CHAT_TYPING_START) {
         const typing = addOnce(state.typing, payload);
         return {
             ...state,
             typing,
         };
-    }
-    else if(type === CHAT_USER_END) {
+    } else if (type === CHAT_USER_END) {
         return {
             ...state,
             loadUser: false,
             user: payload,
         };
-    }
-    else if(type === CHAT_USER_START) {
+    } else if (type === CHAT_USER_START) {
         return {
             ...state,
             loadUser: true,

@@ -7,7 +7,9 @@ import Link from './Link';
 
 const Navigation = () => (
     <nav>
-        {pages.map((entry, key) => <Link key={key} {...entry}/>)}
+        {pages.map((entry, key) => (
+            <Link key={key} {...entry} />
+        ))}
     </nav>
 );
 

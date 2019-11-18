@@ -1,19 +1,15 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import {
-    getTyping,
-    getUser,
-} from 'Store/action/chat';
+import { getTyping, getUser } from 'Store/action/chat';
 import { getEntries } from 'Util/user';
 
 const maxTyping = 2;
 
 const generateTyping = (userList, typing) => {
-    if(typing.length === 0) {
+    if (typing.length === 0) {
         return '';
-    }
-    else if(typing.length <= maxTyping) {
+    } else if (typing.length <= maxTyping) {
         const users = getEntries(userList, typing);
         const userNames = users.map(entry => entry.name.display);
 
@@ -25,14 +21,18 @@ const generateTyping = (userList, typing) => {
     return `${typing.length} users are typing`;
 };
 
-const Typing = ({user}) => {
+const Typing = ({ user }) => {
     const userList = useSelector(getUser);
     const typing = useSelector(getTyping);
     const filtered = typing.filter(entry => entry !== user.id);
     const generated = generateTyping(userList, filtered);
 
     return (
-        <div className={`typing animDotted ${filtered.length === 0 && 'hidden'}`}>{generated}</div>
+        <div
+            className={`typing animDotted ${filtered.length === 0 && 'hidden'}`}
+        >
+            {generated}
+        </div>
     );
 };
 

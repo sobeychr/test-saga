@@ -18,7 +18,6 @@ const PAGE_NAVIGATE = 'PAGE_NAVIGATE';
 
 export {
     INIT_APP,
-    
     CHAT_INIT,
     CHAT_MESSAGE_END,
     CHAT_MESSAGE_START,
@@ -27,9 +26,7 @@ export {
     CHAT_TYPING_START,
     CHAT_USER_END,
     CHAT_USER_START,
-
     CHESS_INIT,
-
     PAGE_END,
     PAGE_ERROR,
     PAGE_FETCH,

@@ -5,11 +5,4 @@ import Home from './Home';
 import List from './List';
 import NotFound from './NotFound';
 
-export {
-    Chat,
-    ChatGen,
-    Chess,
-    Home,
-    List,
-    NotFound,
-};
+export { Chat, ChatGen, Chess, Home, List, NotFound };
