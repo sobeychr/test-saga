@@ -4,11 +4,5 @@
     "printWidth": 80,
     "singleQuote": true,
     "trailingComma": "all",
-    "tabWidth": 4,
-    "overrides": [
-        {
-            "files": ".prettierrc",
-            "options": { "parser": "json"}
-        }
-    ]
+    "tabWidth": 4
 }

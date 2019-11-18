@@ -10,11 +10,13 @@
         "newStore": "node script/newStore.js",
         "pretty": "prettier --write --loglevel=warn ./config/**/* ./data/api/**/* ./script/**/* ./src/**/*",
         "removePage": "node script/removePage.js",
-        "removeStore": "node script/removeStore.js"
+        "removeStore": "node script/removeStore.js",
+        "test": "cross-env NODE_ENV=test jest"
     },
     "husky": {
         "hooks": {
-            "pre-commit": "yarn pretty"
+            "pre-commit": "yarn pretty",
+            "pre-push": "yarn test"
         }
     },
     "dependencies": {
@@ -28,6 +30,7 @@
         "css-loader": "^3.2.0",
         "file-loader": "^4.2.0",
         "husky": "^3.1.0",
+        "jest": "^24.9.0",
         "lodash": "^4.17.15",
         "node-sass": "^4.13.0",
         "path": "^0.12.7",
