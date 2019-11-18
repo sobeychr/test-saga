@@ -22,7 +22,7 @@ const Chat = () => {
     }
 
     return (
-        <main className="chat">
+        <main className='chat'>
             <Loading show={!hasLoaded || isLoading} />
             {hasLoaded && !isLoading && users
                 ? users.map((user, key) => <ChatUser key={key} user={user} />)

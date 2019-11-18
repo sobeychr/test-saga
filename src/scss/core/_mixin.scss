@@ -1,4 +1,4 @@
-@mixin populateScroller($color, $width:10px) {
+@mixin populateScroller($color, $width: 10px) {
     &::-webkit-scrollbar {
         width: $width;
     }

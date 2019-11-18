@@ -27,7 +27,7 @@ const MessageBox = ({ user }) => {
     }
 
     return (
-        <div className="message">
+        <div className='message'>
             {hasLoaded && !isLoading && message
                 ? message.map((entry, key) => (
                       <MessageEntry
@@ -37,7 +37,7 @@ const MessageBox = ({ user }) => {
                       />
                   ))
                 : null}
-            <div className="anchor" ref={anchorRef}></div>
+            <div className='anchor' ref={anchorRef}></div>
         </div>
     );
 };

@@ -49,14 +49,14 @@ class Input extends Component {
 
     render() {
         return (
-            <form className="input" onSubmit={this.handleSubmit}>
+            <form className='input' onSubmit={this.handleSubmit}>
                 <input
                     onChange={this.handleChange}
-                    placeholder="// type message"
-                    type="text"
+                    placeholder='// type message'
+                    type='text'
                     value={this.state.value}
                 />
-                <button type="submit">send</button>
+                <button type='submit'>send</button>
             </form>
         );
     }

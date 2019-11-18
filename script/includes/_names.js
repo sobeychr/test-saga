@@ -1,14 +1,14 @@
 const colors = require('colors/safe');
 const { upperFirst } = require('lodash');
 
-const [ ,, nameArg ] = process.argv;
+const [, , nameArg] = process.argv;
 
-if(!nameArg) {
+if (!nameArg) {
     console.log(
         colors.red('Error'),
         'Unable to run without a',
         colors.cyan('name'),
-        'parameter'
+        'parameter',
     );
     process.exit(1);
 }

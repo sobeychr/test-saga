@@ -9,7 +9,7 @@ const writeFlag = { encoding: 'utf8', flag: 'w' };
 const insertInFiles = (file, replaces) => {
     fs.readFile(file, 'utf8', (err, data) => {
         const { dir, filename } = logFile(file);
-        if(err) {
+        if (err) {
             console.log(
                 colors.red('>> unable to find file for "insertLine"'),
                 dir,
@@ -21,13 +21,7 @@ const insertInFiles = (file, replaces) => {
         let newData = data;
         replaces.map(entry => {
             const { start, end, line } = entry;
-            newData = insertLineBetween(
-                newData,
-                line,
-                start,
-                end,
-                true,
-            );
+            newData = insertLineBetween(newData, line, start, end, true);
         });
 
         writeFiles([
@@ -41,31 +35,22 @@ const insertInFiles = (file, replaces) => {
 
 const funcRemove = path => err => {
     const { dir, filename } = logFile(path);
-    if(err) {
+    if (err) {
         console.log(
             colors.red('>> unable to remove file'),
             dir,
             colors.cyan(filename),
         );
-    }
-    else {
-        console.log(
-            '>> removed file',
-            dir,
-            colors.cyan(filename),
-        );
+    } else {
+        console.log('>> removed file', dir, colors.cyan(filename));
     }
 };
 
 const funcWrite = path => err => {
     const { dir, filename } = logFile(path);
-    if(err) throw err;
+    if (err) throw err;
     else {
-        console.log(
-            '>> written file',
-            dir,
-            colors.cyan(filename),
-        );
+        console.log('>> written file', dir, colors.cyan(filename));
     }
 };
 

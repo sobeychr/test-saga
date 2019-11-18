@@ -21,7 +21,7 @@ const MessageEntry = ({ isCurrent, message }) => {
                 title={generateTitle(user, new Date(timestamp * 1000))}
                 user={user}
             />
-            <p className="text">{text}</p>
+            <p className='text'>{text}</p>
         </div>
     );
 };

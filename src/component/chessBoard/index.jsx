@@ -9,7 +9,7 @@ const ChessBoard = () => {
     const rows = chess.rows.map((number, key) => (
         <Row key={key} number={number} />
     ));
-    return <div className="board">{rows}</div>;
+    return <div className='board'>{rows}</div>;
 };
 
 export default ChessBoard;

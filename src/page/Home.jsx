@@ -5,8 +5,8 @@ import 'Scss/page/home';
 
 const Home = () => {
     return (
-        <main className="home">
-            <PageContent page="home" />
+        <main className='home'>
+            <PageContent page='home' />
         </main>
     );
 };

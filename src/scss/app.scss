@@ -1,6 +1,7 @@
 @import './core';
 
-html, body {
+html,
+body {
     background: #121212;
     color: #ddd;
     font-family: Roboto, sans-serif;
@@ -74,11 +75,10 @@ $placeholder: (
     '::-webkit-input-placeholder',
     '::-moz-placeholder',
     ':-ms-input-placeholder',
-    ':-moz-placeholder',
+    ':-moz-placeholder'
 );
 
-@each $entry in $placeholder
-{
+@each $entry in $placeholder {
     input#{$entry},
     textarea#{$entry} {
         color: #909090;

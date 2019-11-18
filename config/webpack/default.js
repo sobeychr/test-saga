@@ -14,9 +14,6 @@ module.exports = {
     resolve: {
         alias,
         extensions: ['.js', '.jsx', '.scss', '.json'],
-        modules: [
-            srcPath,
-            'node_modules',
-        ],
+        modules: [srcPath, 'node_modules'],
     },
 };

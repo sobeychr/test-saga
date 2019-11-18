@@ -8,8 +8,7 @@ $pathAvatar: '/asset/avatar.png';
         border-radius: 30%;
         display: inline-block;
 
-        @for $i from 1 through $numAvatar
-        {
+        @for $i from 1 through $numAvatar {
             $percent: percentage(($i - 1) / ($numAvatar - 1));
             &_#{$i} {
                 background-position: $percent top;

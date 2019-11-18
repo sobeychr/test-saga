@@ -11,14 +11,14 @@ module.exports = {
         compress: true,
         contentBase: rootPath + '/dist',
         headers: {
-            'X-Custom-Header': 'testing'
+            'X-Custom-Header': 'testing',
         },
         historyApiFallback: true,
         inline: true,
-        host:   'localhost',
-        https:  false,
-        open:   true,
-        port:   3000,
+        host: 'localhost',
+        https: false,
+        open: true,
+        port: 3000,
     },
 
     mode: 'production',

@@ -1,7 +1,7 @@
 [
-    {"component": "Home", "page": "Home", "link": "/"},
-    {"component": "List", "page": "List", "link": "/list"},
-    {"component": "Chat", "page": "Chat", "link": "/chat"},
-    {"component": "ChatGen", "page": "Chat Generated", "link": "/chatgen"},
-    {"component": "Chess", "page": "Chess", "link": "/chess"}
+    { "component": "Home", "page": "Home", "link": "/" },
+    { "component": "List", "page": "List", "link": "/list" },
+    { "component": "Chat", "page": "Chat", "link": "/chat" },
+    { "component": "ChatGen", "page": "Chat Generated", "link": "/chatgen" },
+    { "component": "Chess", "page": "Chess", "link": "/chess" }
 ]

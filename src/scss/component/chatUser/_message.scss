@@ -1,7 +1,7 @@
 .chatuser {
     .message {
         @include populateScroller(#999);
-        
+
         font-size: 12px;
         overflow-y: auto;
 

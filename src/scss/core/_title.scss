@@ -1,7 +1,16 @@
 $titles: (
-    ('tag': 'h1', 'color': #00bd9d),
-    ('tag': 'h2', 'color': #00b4bd),
-    ('tag': 'h3', 'color': #0089bf)
+    (
+        'tag': 'h1',
+        'color': #00bd9d,
+    ),
+    (
+        'tag': 'h2',
+        'color': #00b4bd,
+    ),
+    (
+        'tag': 'h3',
+        'color': #0089bf,
+    )
 );
 
 @each $entry in $titles {

@@ -5,5 +5,5 @@ const srcPath = rootPath + '/src';
 
 module.exports = {
     rootPath,
-    srcPath
+    srcPath,
 };
