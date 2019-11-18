@@ -12,6 +12,11 @@
         "removePage": "node script/removePage.js",
         "removeStore": "node script/removeStore.js"
     },
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn pretty"
+        }
+    },
     "prettier": {
         "endOfLine": "lf",
         "printWidth": 80,
@@ -29,6 +34,7 @@
         "colors": "^1.4.0",
         "css-loader": "^3.2.0",
         "file-loader": "^4.2.0",
+        "husky": "^3.1.0",
         "lodash": "^4.17.15",
         "node-sass": "^4.13.0",
         "path": "^0.12.7",
