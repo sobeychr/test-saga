@@ -12,7 +12,7 @@ const addOnce = (array, value) => {
  * const sendArray = [
  *     ['value1', testString.length > 0],
  *     ['value2', testString.length > 50],
- *     ['value3', testString.contains('c')],
+ *     ['value3', testString.includes('c')],
  * ];
  * const compiledArray = compileCondition(sendArray);
  * // compiledArray = ['value1', 'value3'];
