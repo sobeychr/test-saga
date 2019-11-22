@@ -17,8 +17,7 @@
         "testWatch": "cross-env NODE_ENV=test jest --watch"
     },
     "husky": {
-        "hooks": {
-        }
+        "hooks": {}
     },
     "dependencies": {
         "@babel/core": "^7.7.0",

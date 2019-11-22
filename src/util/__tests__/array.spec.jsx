@@ -29,22 +29,22 @@ describe('src/util/array', () => {
         expect(compileCondition(arr)).toEqual([1, 'test']);
 
         const testString = 'abc';
-        (arr = [
+        arr = [
             ['value1', testString.length > 0],
             ['value2', testString.length > 50],
             ['value3', testString.includes('c')],
-        ]),
-            expect(compileCondition(arr)).toEqual(['value1', 'value3']);
+        ];
+        expect(compileCondition(arr)).toEqual(['value1', 'value3']);
     });
 
     it('should handle "removeEntry"', () => {
-        arr = [1,2,3];
-        expect(removeEntry(arr, 4)).toEqual([1,2,3]);
+        arr = [1, 2, 3];
+        expect(removeEntry(arr, 4)).toEqual([1, 2, 3]);
 
-        arr = [1,2,3];
-        expect(removeEntry(arr, 2)).toEqual([1,3]);
+        arr = [1, 2, 3];
+        expect(removeEntry(arr, 2)).toEqual([1, 3]);
 
-        arr = [1,2,3];
+        arr = [1, 2, 3];
         arr = removeEntry(arr, 3);
         arr = removeEntry(arr, 1);
         expect(arr).toEqual([2]);
