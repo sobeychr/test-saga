@@ -3,7 +3,7 @@ import { zeroFill } from './number';
 const getDate = date =>
     [
         zeroFill(date.getFullYear(), 4),
-        zeroFill(date.getMonth(), 2),
+        zeroFill(date.getMonth() + 1, 2),
         zeroFill(date.getDate(), 2),
     ].join('-');
 

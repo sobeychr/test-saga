@@ -50,5 +50,5 @@ Test project exploring [Redux-Saga](https://redux-saga.js.org/) and [Yarn](https
 ### Quick commands
 
 - `yarn newPage {page}` quickly adds defaults files for a new web page. Remember to edit _src/Router.jsx_
-- `yarn newStore {store}` quickly adds default files for a new store. Remember to edit _src/store/reducer/index.jsx_
+- `yarn newStore {store}` quickly adds default files for a new store. Remember to edit _src/store/reducer/index.jsx_ and _src/data/pages.json_
 - `yarn removePage {page}` and `yarn removeStore {store}` allow to quickly remove files
