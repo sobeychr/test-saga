@@ -6,15 +6,18 @@
     "scripts": {
         "build": "webpack --config config/webpack.build.js",
         "dev": "webpack-dev-server --color --config config/webpack.dev.js",
+
+        "code": "yarn pretty && yarn lint && yarn test",
         "lint": "eslint .",
-        "newPage": "node script/newPage.js",
-        "newStore": "node script/newStore.js",
         "pretty": "prettier --write --loglevel=warn ./config/**/* ./data/api/**/* ./script/**/* ./src/**/*",
-        "removePage": "node script/removePage.js",
-        "removeStore": "node script/removeStore.js",
         "test": "cross-env NODE_ENV=test jest",
         "testCi": "cross-env NODE_ENV=test jest --collectCoverage",
-        "testWatch": "cross-env NODE_ENV=test jest --watch"
+        "testWatch": "cross-env NODE_ENV=test jest --watch",
+
+        "newPage": "node script/newPage.js",
+        "newStore": "node script/newStore.js",
+        "removePage": "node script/removePage.js",
+        "removeStore": "node script/removeStore.js"
     },
     "husky": {
         "hooks": {
