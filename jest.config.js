@@ -1,6 +1,8 @@
 module.exports = {
     collectCoverageFrom: [
-        '**/*.spec.jsx',
+        '**/*.spec.{js,jsx}',
+        '!**/node_modules/**',
+        '!**/vendor/**',
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['html', 'json', 'lcov', 'text', 'clover'],
@@ -9,6 +11,7 @@ module.exports = {
         '<rootDir>/script',
         '<rootDir>/src',
     ],
+    setupFilesAfterEnv: ['<rootDir>/script/enzyme/adapter.js'],
     testMatch: [
         '**/*.spec.{js,jsx}',
     ],
