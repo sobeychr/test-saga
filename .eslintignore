@@ -1,0 +1,5 @@
+.git/
+coverage/
+dist/app.dist.js
+dist/app.dist.js.map
+node_modules/

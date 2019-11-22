@@ -1,8 +1,7 @@
 const colors = require('colors/safe');
 const fs = require('fs');
-const path = require('path');
 
-const { cut, insertLineBetween } = require('./_string');
+const { insertLineBetween } = require('./_string');
 
 const writeFlag = { encoding: 'utf8', flag: 'w' };
 

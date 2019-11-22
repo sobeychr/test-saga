@@ -1,5 +1,5 @@
 const defaultConfig = require('./webpack/default');
-const { rootPath, srcPath } = require('./webpack/paths');
+const { rootPath } = require('./webpack/paths');
 
 module.exports = {
     ...defaultConfig,

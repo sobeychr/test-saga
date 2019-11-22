@@ -15,5 +15,5 @@ module.exports = {
     testURL: 'http://localhost',
     transform: {
         '^.+\\.(js|jsx)$': 'babel-jest',
-    }
+    },
 };
