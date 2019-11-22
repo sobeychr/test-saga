@@ -1,3 +1,13 @@
+const alias = require('./config/webpack/alias');
+const { rootPath, srcPath } = require('./config/webpack/paths');
+const moduleNameMapper = {};
+
+Object.keys(alias).map(key => {
+    moduleNameMapper[`^${key}(.*)$`] = `${alias[key]}$1`
+        .replace(rootPath, '<rootDir>')
+        .replace(srcPath, '<rootDir>/src');
+});
+
 module.exports = {
     collectCoverageFrom: [
         '**/*.spec.{js,jsx}',
@@ -6,6 +16,7 @@ module.exports = {
     ],
     coverageDirectory: 'coverage',
     coverageReporters: ['html', 'json', 'lcov', 'text', 'clover'],
+    moduleNameMapper,
     // reporters: ['default', 'jest-junit'],
     roots: [
         '<rootDir>/script',

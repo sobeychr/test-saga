@@ -8,7 +8,7 @@ describe('src/component/charUser/avatar', () => {
     const title = 'test-title';
 
     it('should render properly', () => {
-        const wrapper = shallow(<Avatar user={userMock} title={title}/>);
+        const wrapper = shallow(<Avatar user={userMock} title={title} />);
         const classes = wrapper.prop('className');
 
         expect(wrapper).toHaveLength(1);
