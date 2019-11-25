@@ -6,7 +6,6 @@ $numbers: (8, 7, 6, 5, 4, 3, 2, 1);
 $types: ('pawn', 'rook', 'knight', 'bishop', 'queen', 'king');
 
 .chessPiece {
-    background: transparent url('/asset/chess-pieces.png') no-repeat;
     cursor: pointer;
     height: $tilePercent;
     position: absolute;
@@ -22,8 +21,14 @@ $types: ('pawn', 'rook', 'knight', 'bishop', 'queen', 'king');
         &.number_#{$number} { top: $tilePercent * $index; }
     }
 
-    @each $type in $types {
-        $index: index($types, $type) - 1;
-        &.type_#{$type} { background-position-x: $piecePercent * $index; }
+    svg {
+        height: 80%;
+        margin: 10%;
+        width: 80%;
+
+        path {
+            stroke: #000;
+            stroke-width: 5px;
+        }
     }
 }

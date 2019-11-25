@@ -6,6 +6,7 @@
     pointer-events: none;
     position: absolute;
     user-select: none;
+    z-index: 3;
 
     &_letter {
         bottom: 3px;

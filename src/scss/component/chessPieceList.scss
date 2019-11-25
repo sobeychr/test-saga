@@ -6,9 +6,9 @@
     top: 0;
 
     &_black .chessPiece {
-        background-position-y: top;
+        color: #000;
     }
     &_white .chessPiece {
-        background-position-y: bottom;
+        color: #fff;
     }
 }
