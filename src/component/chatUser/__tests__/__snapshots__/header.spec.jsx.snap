@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/component/charUser/header should render properly 1`] = `
+<div
+  className="header"
+>
+  <Avatar
+    user={
+      Object {
+        "avatar": 4,
+        "gender": 0,
+        "id": 1,
+        "name": Object {
+          "display": "_ut_nunc_h",
+          "first": "uismod. Na",
+          "last": "consectetu",
+        },
+      }
+    }
+  />
+  <span>
+    _ut_nunc_h
+  </span>
+</div>
+`;

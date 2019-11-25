@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { userMock } from 'Util/mock';
+import toJson from 'enzyme-to-json';
 
 import Header from './../header';
 
@@ -13,6 +14,6 @@ describe('src/component/charUser/header', () => {
         const wrapper = shallow(<Header user={userMock} />);
 
         expect(wrapper).toHaveLength(1);
-        expect(wrapper.text()).toEqual(expect.stringContaining(display));
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 });

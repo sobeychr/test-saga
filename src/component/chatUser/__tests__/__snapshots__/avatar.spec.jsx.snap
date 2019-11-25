@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/component/charUser/avatar should render properly 1`] = `
+<div
+  className="avatar avatar_4"
+  title="test-title"
+/>
+`;

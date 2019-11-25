@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { userMock } from 'Util/mock';
+import toJson from 'enzyme-to-json';
 
 import Avatar from './../avatar';
 
@@ -12,8 +13,6 @@ describe('src/component/charUser/avatar', () => {
         const classes = wrapper.prop('className');
 
         expect(wrapper).toHaveLength(1);
-        expect(classes).toEqual(expect.stringContaining('avatar'));
-        expect(classes).toEqual(expect.stringContaining('4'));
-        expect(wrapper.prop('title')).toEqual(title);
+        expect(toJson(wrapper)).toMatchSnapshot();
     });
 });
