@@ -1,6 +1,7 @@
 $colorBlack: #0a0;
 $colorWhite: #ccc;
 
+
 .board {
     display: flex;
     flex-direction: column;
@@ -37,6 +38,19 @@ $colorWhite: #ccc;
         .tile {
             height: 100%;
             width: percentage(1/8);
+
+            .label {
+                color: #000;
+                display: inline-block;
+                font-size: 12px;
+                font-style: italic;
+                font-weight: 900;
+                margin: 3px 0 0 3px;
+                opacity: 0.5;
+                pointer-events: none;
+                text-transform: uppercase;
+                user-select: none;
+            }
         }
     }
 }
