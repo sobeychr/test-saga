@@ -1,5 +1,7 @@
 src/**/*.gif
 src/**/*.jpg
 src/**/*.jpeg
+src/**/*.map
 src/**/*.png
+src/**/*.snap
 src/**/*.svg

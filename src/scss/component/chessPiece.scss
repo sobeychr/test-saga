@@ -13,12 +13,16 @@ $types: ('pawn', 'rook', 'knight', 'bishop', 'queen', 'king');
 
     @each $letter in $letters {
         $index: index($letters, $letter) - 1;
-        &.letter_#{$letter} { left: $tilePercent * $index; }
+        &.letter_#{$letter} {
+            left: $tilePercent * $index;
+        }
     }
 
     @each $number in $numbers {
         $index: index($numbers, $number) - 1;
-        &.number_#{$number} { top: $tilePercent * $index; }
+        &.number_#{$number} {
+            top: $tilePercent * $index;
+        }
     }
 
     svg {

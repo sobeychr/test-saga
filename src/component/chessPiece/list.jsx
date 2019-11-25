@@ -5,14 +5,14 @@ import { getPieces } from 'Store/action/chess';
 import 'Scss/component/chessPieceList';
 import ChessPiece from './piece';
 
-const ChessPieceList = ({color}) => {
+const ChessPieceList = ({ color }) => {
     const pieceList = useSelector(getPieces(color));
-    const pieces = pieceList.map((entry, key) => <ChessPiece key={key} color={color} {...entry} />);
+    const pieces = pieceList.map((entry, key) => (
+        <ChessPiece key={key} color={color} {...entry} />
+    ));
 
     return (
-        <div className={`chessPieceList chessPieceList_${color}`}>
-            {pieces}
-        </div>
+        <div className={`chessPieceList chessPieceList_${color}`}>{pieces}</div>
     );
 };
 
