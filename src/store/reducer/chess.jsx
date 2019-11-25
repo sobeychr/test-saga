@@ -1,7 +1,12 @@
 import { CHESS_INIT } from 'Store/type';
 
+import { pieces } from 'Data/chess';
+
 const initialState = {
-    test: [],
+    status: 0,
+    turn: [],
+    black: pieces.black,
+    white: pieces.white,
 };
 
 const chess = (state = initialState, action) => {
@@ -10,13 +15,6 @@ const chess = (state = initialState, action) => {
     if (type === CHESS_INIT) {
         return {
             ...state,
-        };
-    }
-    if (type === false) {
-        return {
-            ...state,
-            loadMessage: false,
-            message: payload,
         };
     }
 

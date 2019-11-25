@@ -1,4 +1,42 @@
 {
     "columns": ["a", "b", "c", "d", "e", "f", "g", "h"],
-    "rows": [8, 7, 6, 5, 4, 3, 2, 1]
+    "rows": [8, 7, 6, 5, 4, 3, 2, 1],
+    "pieces": {
+        "black": [
+            { "type": "pawn", "letter": "a", "number": 7 },
+            { "type": "pawn", "letter": "b", "number": 7 },
+            { "type": "pawn", "letter": "c", "number": 7 },
+            { "type": "pawn", "letter": "d", "number": 7 },
+            { "type": "pawn", "letter": "e", "number": 7 },
+            { "type": "pawn", "letter": "f", "number": 7 },
+            { "type": "pawn", "letter": "g", "number": 7 },
+            { "type": "pawn", "letter": "h", "number": 7 },
+            { "type": "rook", "letter": "a", "number": 8 },
+            { "type": "rook", "letter": "h", "number": 8 },
+            { "type": "knight", "letter": "b", "number": 8 },
+            { "type": "knight", "letter": "g", "number": 8 },
+            { "type": "bishop", "letter": "c", "number": 8 },
+            { "type": "bishop", "letter": "f", "number": 8 },
+            { "type": "queen", "letter": "d", "number": 8 },
+            { "type": "king", "letter": "e", "number": 8 }
+        ],
+        "white": [
+            { "type": "pawn", "letter": "a", "number": 2 },
+            { "type": "pawn", "letter": "b", "number": 2 },
+            { "type": "pawn", "letter": "c", "number": 2 },
+            { "type": "pawn", "letter": "d", "number": 2 },
+            { "type": "pawn", "letter": "e", "number": 2 },
+            { "type": "pawn", "letter": "f", "number": 2 },
+            { "type": "pawn", "letter": "g", "number": 2 },
+            { "type": "pawn", "letter": "h", "number": 2 },
+            { "type": "rook", "letter": "a", "number": 1 },
+            { "type": "rook", "letter": "h", "number": 1 },
+            { "type": "knight", "letter": "b", "number": 1 },
+            { "type": "knight", "letter": "g", "number": 1 },
+            { "type": "bishop", "letter": "c", "number": 1 },
+            { "type": "bishop", "letter": "f", "number": 1 },
+            { "type": "queen", "letter": "d", "number": 1 },
+            { "type": "king", "letter": "e", "number": 1 }
+        ]
+    }
 }

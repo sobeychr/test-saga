@@ -52,7 +52,7 @@ const ChatGen = () => {
     messages.sort((a, b) => (a.date > b.date ? 1 : -1));
 
     return (
-        <main className='options'>
+        <main className='chatgens'>
             <h2>Randomly generated users</h2>
             <pre>{JSON.stringify(users)}</pre>
 

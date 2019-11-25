@@ -1,0 +1,36 @@
+$piecePercent: percentage(1/6);
+$tilePercent: percentage(1/8);
+
+.chessPiece {
+    background: transparent url('/asset/chess-pieces.png') no-repeat;
+    background-size: $tilePercent;
+    cursor: pointer;
+    height: $tilePercent;
+    position: absolute;
+    width: $tilePercent;
+
+    &.letter_a { left: 0; }
+    &.letter_b { left: $tilePercent * 1; }
+    &.letter_c { left: $tilePercent * 2; }
+    &.letter_d { left: $tilePercent * 3; }
+    &.letter_e { left: $tilePercent * 4; }
+    &.letter_f { left: $tilePercent * 5; }
+    &.letter_g { left: $tilePercent * 6; }
+    &.letter_h { left: $tilePercent * 7; }
+
+    &.number_8 { top: 0; }
+    &.number_7 { top: $tilePercent * 1; }
+    &.number_6 { top: $tilePercent * 2; }
+    &.number_5 { top: $tilePercent * 3; }
+    &.number_4 { top: $tilePercent * 4; }
+    &.number_3 { top: $tilePercent * 5; }
+    &.number_2 { top: $tilePercent * 6; }
+    &.number_1 { top: $tilePercent * 7; }
+
+    &.type_pawn { background-position-x: 0; }
+    &.type_rook { background-position-x: $piecePercent * 1; }
+    &.type_knight { background-position-x: $piecePercent * 2; }
+    &.type_bishop { background-position-x: $piecePercent * 3; }
+    &.type_queen { background-position-x: $piecePercent * 4; }
+    &.type_king { background-position-x: $piecePercent * 5; }
+}

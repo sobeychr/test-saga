@@ -1,0 +1,27 @@
+$colorBlack: #0a0;
+$colorWhite: #ccc;
+
+.chessRow {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    @for $row from 1 through 8 {
+        $colorEven: $colorWhite;
+        $colorOdd: $colorBlack;
+
+        @if $row % 2 == 0 {
+            $colorEven: $colorBlack;
+            $colorOdd: $colorWhite;
+        }
+
+        &_#{$row} {
+            .chessTile:nth-child(even) {
+                background: $colorEven;
+            }
+            .chessTile:nth-child(odd) {
+                background: $colorOdd;
+            }
+        }
+    }
+}
