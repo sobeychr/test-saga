@@ -1,3 +1,34 @@
+@mixin buttonColorBackground(
+    $default,
+    $active: darken($default, 15%),
+    $hover: lighten($default, 15%)
+) {
+    background: $default;
+    &:active {
+        background: $active;
+        border-color: $hover;
+    }
+    &:hover:not(:active) {
+        background: $hover;
+    }
+}
+
+@mixin buttonColorText(
+    $default: #000,
+    $disabled: lighten($default, 30%)
+) {
+    color: $default;
+    &:disabled {
+        color: $disabled;
+        font-style: italic;
+    }
+}
+
+@mixin buttonColor($background, $text) {
+    @include buttonColorBackground($background);
+    @include buttonColorText($text);
+}
+
 @mixin populateScroller($color, $width: 10px) {
     &::-webkit-scrollbar {
         width: $width;
