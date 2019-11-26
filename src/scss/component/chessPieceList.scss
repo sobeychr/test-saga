@@ -11,4 +11,9 @@
     &_white .chessPiece {
         color: #fff;
     }
+
+    &:not(&--active) {
+        pointer-events: none;
+        user-select: none;
+    }
 }

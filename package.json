@@ -46,6 +46,7 @@
         "path": "^0.12.7",
         "prettier": "^1.19.1",
         "react": "^16.11.0",
+        "react-dnd": "^9.5.1",
         "react-dom": "^16.11.0",
         "react-html-parser": "^2.0.2",
         "react-icons": "^3.8.0",

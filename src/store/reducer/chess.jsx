@@ -1,4 +1,4 @@
-import { CHESS_INIT } from 'Store/type';
+import { CHESS_CLICK, CHESS_INIT } from 'Store/type';
 
 import { pieces } from 'Data/chess';
 
@@ -15,6 +15,15 @@ const chess = (state = initialState, action) => {
     if (type === CHESS_INIT) {
         return {
             ...state,
+            status: 2,
+            turn: [],
+        };
+    } else if (type === CHESS_CLICK) {
+        const turn = state.turn;
+        turn.push(payload);
+        return {
+            ...state,
+            turn,
         };
     }
 

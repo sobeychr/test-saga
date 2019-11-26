@@ -13,10 +13,7 @@
     }
 }
 
-@mixin buttonColorText(
-    $default: #000,
-    $disabled: lighten($default, 30%)
-) {
+@mixin buttonColorText($default: #000, $disabled: lighten($default, 30%)) {
     color: $default;
     &:disabled {
         color: $disabled;

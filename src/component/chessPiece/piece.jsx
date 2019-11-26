@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { upperFirst } from 'lodash';
+import { useDispatch } from 'react-redux';
 
 import {
     FaChessBishop,
@@ -10,6 +11,7 @@ import {
     FaChessRook,
 } from 'react-icons/fa';
 
+import { click } from 'Store/action/chess';
 import 'Scss/component/chessPiece';
 
 const getIcon = type => {
@@ -22,9 +24,16 @@ const getIcon = type => {
 };
 
 const ChessPiece = ({ color, type, letter, number }) => {
+    const dispatch = useDispatch();
+    const onClick = useCallback(
+        () => dispatch(click({ type, letter, number })),
+        [dispatch],
+    );
+
     return (
         <div
             className={`chessPiece type_${type} letter_${letter} number_${number}`}
+            onClick={onClick}
         >
             {getIcon(type)}
         </div>

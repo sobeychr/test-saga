@@ -25,6 +25,10 @@ $types: ('pawn', 'rook', 'knight', 'bishop', 'queen', 'king');
         }
     }
 
+    &:hover {
+        box-shadow: 0 0 10px 3px rgba(#000, 0.5) inset;
+    }
+
     svg {
         height: 80%;
         margin: 10%;
