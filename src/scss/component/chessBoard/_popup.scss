@@ -1,0 +1,31 @@
+.chessPopup {
+    background: rgba(#000, 0.5);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    button {
+        background: #0d0;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        cursor: pointer;
+        display: block;
+        font-size: 20px;
+        margin: 0 auto;
+        padding: 15px;
+        position: relative;
+        outline: none;
+        text-transform: uppercase;
+        top: 40%;
+
+        &:active {
+            background: #0a0;
+            border-color: #0f0;
+        }
+        &:hover:not(:active) {
+            background: #0f0;
+        }
+    }
+}

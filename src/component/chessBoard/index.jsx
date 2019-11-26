@@ -2,8 +2,10 @@ import React from 'react';
 
 import { rows } from 'Data/chess';
 import 'Scss/component/chessBoard';
+import ChessPieceList from 'Component/chessPiece/list';
+
+import Popup from './popup';
 import Row from './row';
-import ChessPieceList from './../chessPiece/list';
 
 const ChessBoard = () => {
     const rowTiles = rows.map((entry, key) => <Row key={key} number={entry} />);
@@ -13,6 +15,7 @@ const ChessBoard = () => {
             {rowTiles}
             <ChessPieceList color='black' />
             <ChessPieceList color='white' />
+            <Popup />
         </div>
     );
 };
