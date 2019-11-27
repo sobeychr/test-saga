@@ -1,14 +1,15 @@
 import { CHESS_CLICK, CHESS_START } from 'Store/type';
 
-const click = piece => ({
+const click = tile => ({
     type: CHESS_CLICK,
-    payload: piece,
+    payload: tile,
 });
+
 const start = { type: CHESS_START };
 
-const isNew = state => state.chess.status === 0;
-const isOver = state => state.chess.status === 1;
-const isRunning = state => state.chess.status === 2;
+const isNew = state => state.chess.running === 0;
+const isRunning = state => state.chess.running === 1;
+const isOver = state => state.chess.running === 2;
 
 const isTurn = color => state =>
     isRunning(state) &&
@@ -20,4 +21,10 @@ const getPiece = (letter, number) => state =>
         entry => entry.letter === letter && entry.number === number,
     );
 
-export { click, isNew, isTurn, getPiece, start };
+export {
+    click,
+    isNew,
+    isTurn,
+    getPiece,
+    start,
+};

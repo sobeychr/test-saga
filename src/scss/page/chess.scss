@@ -1,0 +1,13 @@
+@import './../core';
+
+main.chess {
+    max-width: 500px;
+
+    .command {
+        margin-top: 20px;
+
+        .reset {
+            @include buttonColor(#2e77c9, #000);
+        }
+    }
+}

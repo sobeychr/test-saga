@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import Button from 'Component/button';
 import { isNew, start } from 'Store/action/chess';
 
 const Popup = () => {
@@ -11,7 +12,7 @@ const Popup = () => {
 
     return (
         <div className={`chessPopup ${isNewGame ? 'show' : 'hidden'}`}>
-            <button onClick={onClick}>start new game</button>
+            <Button label="start new game" onClick={onClick} />
         </div>
     );
 };

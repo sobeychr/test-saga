@@ -21,7 +21,7 @@
     }
 }
 
-@mixin buttonColor($background, $text) {
+@mixin buttonColor($background, $text: #000) {
     @include buttonColorBackground($background);
     @include buttonColorText($text);
 }

@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { first, last } from 'lodash';
 
 import { columns, rows } from 'Data/chess';
-import { getPiece } from 'Store/action/chess';
+import { click, getPiece, isTurn } from 'Store/action/chess';
 import Piece from './piece';
 
 const firstLetter = first(columns);
@@ -13,9 +13,27 @@ const isLastRow = letter => letter === lastNumber;
 
 const Tile = ({ letter, number }) => {
     const piece = useSelector(getPiece(letter, number));
+    const hasPiece = !!piece;
+    const isTurnPiece = hasPiece && useSelector(isTurn(piece.color));
+
+    const dispatch = useDispatch();
+    const onClick = useCallback(
+        () => {
+            if(hasPiece && isTurn) {
+                dispatch(click({ letter, number }));
+            }
+        },
+        [dispatch, letter, number, piece],
+    );
 
     return (
-        <div className={`chessTile chessTile_${letter}`}>
+        <div onClick={onClick}
+             className={
+                `chessTile chessTile_${letter}
+                ${isTurnPiece ? 'active' : 'inactive'}
+                ${hasPiece ? 'chessTile--contain' : ''}`
+            }
+            >
             {isFirstLetter(letter) && (
                 <span className='chessLabel chessLabel_number inactive'>
                     {number}
@@ -26,7 +44,7 @@ const Tile = ({ letter, number }) => {
                     {letter}
                 </span>
             )}
-            {piece && <Piece {...piece} />}
+            {hasPiece && <Piece {...piece} />}
         </div>
     );
 };
