@@ -17,8 +17,7 @@ const chess = (state = initialState, action) => {
             status: 2,
             turn: [],
         };
-    }
-    else if (type === CHESS_CLICK) {
+    } else if (type === CHESS_CLICK) {
         const turn = state.turn;
         turn.push(payload);
         return {

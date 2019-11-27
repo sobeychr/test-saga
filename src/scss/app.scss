@@ -40,12 +40,6 @@ a {
     padding: 0 5px;
 }
 
-.hidden {
-    display: none;
-}
-.invisible {
-    opacity: 0;
-}
 .clearfix {
     &:after,
     &:before {
@@ -55,6 +49,16 @@ a {
     &:after {
         clear: both;
     }
+}
+.hidden {
+    display: none;
+}
+.inactive {
+    pointer-events: none;
+    user-select: none;
+}
+.invisible {
+    opacity: 0;
 }
 
 main {

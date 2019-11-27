@@ -16,10 +16,6 @@
             box-shadow: 0 0 10px 3px rgba(#000, 0.5) inset;
         }
     }
-    &.inactive {
-        pointer-events: none;
-        user-select: none;
-    }
 
     svg {
         height: 80%;

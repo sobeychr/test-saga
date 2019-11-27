@@ -17,14 +17,16 @@ const Tile = ({ letter, number }) => {
     return (
         <div className={`chessTile chessTile_${letter}`}>
             {isFirstLetter(letter) && (
-                <span className='chessLabel chessLabel_number'>{number}</span>
+                <span className='chessLabel chessLabel_number inactive'>
+                    {number}
+                </span>
             )}
             {isLastRow(number) && (
-                <span className='chessLabel chessLabel_letter'>{letter}</span>
+                <span className='chessLabel chessLabel_letter inactive'>
+                    {letter}
+                </span>
             )}
-            {piece && (
-                <Piece {...piece} />
-            )}
+            {piece && <Piece {...piece} />}
         </div>
     );
 };

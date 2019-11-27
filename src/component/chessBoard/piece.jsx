@@ -33,7 +33,9 @@ const Piece = ({ color, type, letter, number }) => {
 
     return (
         <div
-            className={`chessPiece type_${type} color_${color} ${isTurnPiece ? 'active' : 'inactive'}`}
+            className={`chessPiece type_${type} color_${color} ${
+                isTurnPiece ? 'active' : 'inactive'
+            }`}
             onClick={onClick}
         >
             {getIcon(type)}
