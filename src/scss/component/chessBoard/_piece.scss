@@ -1,5 +1,4 @@
 .chessPiece {
-    cursor: pointer;
     height: 100%;
     position: absolute;
     width: 100%;
@@ -11,8 +10,15 @@
         color: #fff;
     }
 
-    &:hover {
-        box-shadow: 0 0 10px 3px rgba(#000, 0.5) inset;
+    &.active {
+        cursor: pointer;
+        &:hover {
+            box-shadow: 0 0 10px 3px rgba(#000, 0.5) inset;
+        }
+    }
+    &.inactive {
+        pointer-events: none;
+        user-select: none;
     }
 
     svg {

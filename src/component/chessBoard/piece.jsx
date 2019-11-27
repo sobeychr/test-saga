@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { upperFirst } from 'lodash';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
     FaChessBishop,
@@ -11,8 +11,7 @@ import {
     FaChessRook,
 } from 'react-icons/fa';
 
-import { click } from 'Store/action/chess';
-import 'Scss/component/chessPiece';
+import { click, isTurn } from 'Store/action/chess';
 
 const getIcon = type => {
     if (type === 'bishop') return <FaChessBishop />;
@@ -23,16 +22,18 @@ const getIcon = type => {
     else if (type === 'rook') return <FaChessRook />;
 };
 
-const ChessPiece = ({ color, type, letter, number }) => {
+const Piece = ({ color, type, letter, number }) => {
     const dispatch = useDispatch();
     const onClick = useCallback(
         () => dispatch(click({ type, letter, number })),
-        [dispatch],
+        [dispatch, type, letter, number],
     );
+
+    const isTurnPiece = useSelector(isTurn(color));
 
     return (
         <div
-            className={`chessPiece type_${type} letter_${letter} number_${number}`}
+            className={`chessPiece type_${type} color_${color} ${isTurnPiece ? 'active' : 'inactive'}`}
             onClick={onClick}
         >
             {getIcon(type)}
@@ -40,4 +41,4 @@ const ChessPiece = ({ color, type, letter, number }) => {
     );
 };
 
-export default ChessPiece;
+export default Piece;
