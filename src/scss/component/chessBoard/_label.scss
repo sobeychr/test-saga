@@ -22,11 +22,3 @@
         top: 0;
     }
 }
-
-.chessRow:not(.chessRow_1) .chessLabel_letter {
-    display: none;
-}
-
-.chessTile:not(.chessTile_a) .chessLabel_number {
-    display: none;
-}
