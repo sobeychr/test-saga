@@ -2,12 +2,12 @@ import { call, put } from 'redux-saga/effects';
 
 import { init } from 'Store/action/chess';
 
-function* initChess() {
+function* clickTile() {
     try {
         // yield put(chessStart);
     } catch (err) {
-        console.error('[initChess]-try', err);
+        console.error('[clickTile]-try', err);
     }
 }
 
-export { initChess };
+export { clickTile };

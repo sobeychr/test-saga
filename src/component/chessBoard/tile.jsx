@@ -14,14 +14,13 @@ const isLastRow = letter => letter === lastNumber;
 const Tile = ({ letter, number }) => {
     const piece = useSelector(getPiece(letter, number));
     const hasPiece = !!piece;
-    const isTurnPiece = hasPiece && useSelector(isTurn(piece.color));
 
     const dispatch = useDispatch();
     const onClick = useCallback(
         () => {
-            if(hasPiece && isTurn) {
+            // if(hasPiece && isTurn) {
                 dispatch(click({ letter, number }));
-            }
+            // }
         },
         [dispatch, letter, number, piece],
     );
@@ -30,7 +29,6 @@ const Tile = ({ letter, number }) => {
         <div onClick={onClick}
              className={
                 `chessTile chessTile_${letter}
-                ${isTurnPiece ? 'active' : 'inactive'}
                 ${hasPiece ? 'chessTile--contain' : ''}`
             }
             >

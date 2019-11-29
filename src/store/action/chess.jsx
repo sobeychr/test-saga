@@ -1,4 +1,4 @@
-import { CHESS_CLICK, CHESS_START } from 'Store/type';
+import { CHESS_CLICK, CHESS_RESET, CHESS_START } from 'Store/type';
 
 const click = tile => ({
     type: CHESS_CLICK,
@@ -21,10 +21,14 @@ const getPiece = (letter, number) => state =>
         entry => entry.letter === letter && entry.number === number,
     );
 
+
+const reset = { type: CHESS_RESET };
+
 export {
     click,
     isNew,
     isTurn,
     getPiece,
+    reset,
     start,
 };

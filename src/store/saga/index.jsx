@@ -13,7 +13,7 @@ import {
 import pages from 'Data/pages';
 
 import { initChat, fetchMessage, fetchUser } from './chat';
-import { initChess } from './chess';
+// import { clickTile } from './chess';
 import { fetchPage } from './page';
 
 const firstPage = get(pages, '0.page');
