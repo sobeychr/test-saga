@@ -12,7 +12,7 @@ const Popup = () => {
 
     return (
         <div className={`chessPopup ${isNewGame ? 'show' : 'hidden'}`}>
-            <Button label="start new game" onClick={onClick} />
+            <Button label='start new game' onClick={onClick} />
         </div>
     );
 };

@@ -3,7 +3,7 @@
     position: relative;
     width: 100%;
 
-    &--contain.active{
+    &--contain.active {
         cursor: pointer;
         &:hover {
             box-shadow: 0 0 10px 3px rgba(#000, 0.5) inset;

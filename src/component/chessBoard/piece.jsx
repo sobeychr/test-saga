@@ -24,9 +24,7 @@ const getIcon = type => {
 
 const Piece = ({ color, type, letter, number }) => {
     return (
-        <div
-            className={`chessPiece type_${type} color_${color}`}
-        >
+        <div className={`chessPiece type_${type} color_${color}`}>
             {getIcon(type)}
         </div>
     );

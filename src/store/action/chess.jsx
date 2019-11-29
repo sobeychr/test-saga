@@ -1,15 +1,24 @@
-import { CHESS_CLICK, CHESS_RESET, CHESS_START } from 'Store/type';
+import { isEqual } from 'lodash';
+import { CHESS_PUT, CHESS_RESET, CHESS_SELECT, CHESS_START } from 'Store/type';
 
-const click = tile => ({
-    type: CHESS_CLICK,
-    payload: tile,
-});
-
+// Game status
 const start = { type: CHESS_START };
+const reset = { type: CHESS_RESET };
 
 const isNew = state => state.chess.running === 0;
 const isRunning = state => state.chess.running === 1;
 const isOver = state => state.chess.running === 2;
+
+// Selecting a piece, moving tile
+const isSelected = state => !isEqual({}, state.chess.clicked);
+const put = tile => ({
+    type: CHESS_PUT,
+    payload: tile,
+});
+const select = tile => ({
+    type: CHESS_SELECT,
+    payload: tile,
+});
 
 const isTurn = color => state =>
     isRunning(state) &&
@@ -21,14 +30,4 @@ const getPiece = (letter, number) => state =>
         entry => entry.letter === letter && entry.number === number,
     );
 
-
-const reset = { type: CHESS_RESET };
-
-export {
-    click,
-    isNew,
-    isTurn,
-    getPiece,
-    reset,
-    start,
-};
+export { isNew, isSelected, isTurn, getPiece, put, reset, select, start };

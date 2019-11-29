@@ -10,12 +10,9 @@ const Chess = () => {
     const isNewGame = useSelector(isNew);
 
     const dispatch = useDispatch();
-    const onClick = useCallback(
-        () => {
-            dispatch(reset);
-        },
-        [dispatch],
-    );
+    const onClick = useCallback(() => {
+        dispatch(reset);
+    }, [dispatch]);
 
     return (
         <main className='chess'>
