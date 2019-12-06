@@ -38,16 +38,20 @@ const chess = (state = initialState, action) => {
             clicked: payload,
         };
     } else if (type === CHESS_PUT) {
+        const { letter, number } = payload;
         const [prev, index] = findPiece(state, state.clicked);
-        const pieces = state.pieces;
-        prev.letter = payload.letter;
-        prev.number = payload.number;
-        pieces[index] = prev;
+
+        const turn = [...state.turn];
+        turn.push({
+            ...prev,
+            letter,
+            number,
+        });
 
         return {
             ...state,
             clicked: {},
-            pieces,
+            turn,
         };
     }
 

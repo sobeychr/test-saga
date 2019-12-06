@@ -1,5 +1,5 @@
 import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
-import { get } from 'lodash';
+import get from 'lodash/fp/get';
 
 import { navigate as navigatePage } from 'Store/action/page';
 import {

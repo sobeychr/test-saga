@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { first, last } from 'lodash';
+import { first, last } from 'lodash/fp';
 
 import { columns, rows } from 'Data/chess';
 import { getPiece, isSelected, isTurn, put, select } from 'Store/action/chess';

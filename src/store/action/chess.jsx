@@ -1,4 +1,4 @@
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/fp/isEqual';
 import { CHESS_PUT, CHESS_RESET, CHESS_SELECT, CHESS_START } from 'Store/type';
 
 // Game status

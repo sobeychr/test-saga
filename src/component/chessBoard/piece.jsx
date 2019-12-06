@@ -1,5 +1,4 @@
 import React from 'react';
-import { upperFirst } from 'lodash';
 import { useSelector } from 'react-redux';
 
 import {
