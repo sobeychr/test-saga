@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Button from 'Component/button';
 import ChessBoard from 'Component/chessBoard';
+import ChessTurn from 'Component/chessTurn';
 import { isNew, reset } from 'Store/action/chess';
 import 'Scss/page/chess';
 
@@ -25,6 +26,7 @@ const Chess = () => {
                     onClick={onClick}
                 />
             </div>
+            <ChessTurn />
         </main>
     );
 };

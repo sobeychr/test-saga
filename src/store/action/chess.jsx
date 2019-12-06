@@ -20,6 +20,8 @@ const select = tile => ({
     payload: tile,
 });
 
+// Selecting turns
+const getTurns = state => state.chess.turn;
 const isTurn = color => state =>
     isRunning(state) &&
     ((color === 'black' && state.chess.turn.length % 2 !== 0) ||
@@ -30,4 +32,15 @@ const getPiece = (letter, number) => state =>
         entry => entry.letter === letter && entry.number === number,
     );
 
-export { isNew, isSelected, isTurn, getPiece, put, reset, select, start };
+export {
+    getPiece,
+    getTurns,
+    isNew,
+    isRunning,
+    isSelected,
+    isTurn,
+    put,
+    reset,
+    select,
+    start,
+};
